@@ -511,6 +511,59 @@ p { margin: 0; font-size: clamp(16px, 2vw, 19px); line-height: 1.55; color: var(
 }
 .limit-labels { width: min(420px, 100%); display: flex; justify-content: space-between; font-size: 13px; color: var(--mist); }
 
+
+/* Fix: tall scenes start at the top instead of clipping above the screen */
+.slide { justify-content: flex-start; }
+.slide > .inner { margin-block: auto; }
+
+/* Savings jar */
+.jar-glass { fill: rgba(238,243,248,.12); stroke: #0B2545; stroke-width: 3; }
+.jar-lid { fill: #C9D6E8; stroke: #0B2545; stroke-width: 3; }
+.jar-shine { stroke: #FFFFFF; stroke-width: 4; stroke-linecap: round; opacity: .8; }
+.jar-fill { fill: rgba(212,162,58,.28); }
+.jar-stack ellipse { fill: #D4A23A; stroke: #A87D22; stroke-width: 1.5; }
+.jar-cap { stroke: var(--coral); stroke-width: 2; stroke-dasharray: 4 4; opacity: 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .is-active .jar-fill { animation: jarRise 3.2s var(--ease) .6s both; }
+  .is-active .jar-stack ellipse { animation: pop .5s var(--ease) both; transform-box: fill-box; transform-origin: center; }
+  .is-active .jar-stack ellipse:nth-child(1) { animation-delay: .9s; } .is-active .jar-stack ellipse:nth-child(4) { animation-delay: 1.2s; }
+  .is-active .jar-stack ellipse:nth-child(2) { animation-delay: 1.6s; } .is-active .jar-stack ellipse:nth-child(5) { animation-delay: 2s; }
+  .is-active .jar-stack ellipse:nth-child(3) { animation-delay: 2.4s; }
+  .is-active .jar-cap { animation: fadeIn .6s ease 3.4s both; }
+}
+@keyframes jarRise { from { transform: translateY(44px); } to { transform: none; } }
+
+/* Tabarru' fund network */
+.net-line { stroke: rgba(79,209,217,.6); stroke-width: 2; stroke-dasharray: 4 5; fill: none; }
+.net-out { stroke: var(--gold); stroke-width: 3; stroke-dasharray: 5 5; fill: none; opacity: 0; }
+.node circle, .node path { fill: none; stroke: var(--teal-bright); stroke-width: 2.5; stroke-linecap: round; }
+.node.help circle, .node.help path { stroke: var(--gold); stroke-width: 3; }
+.node { transform-box: fill-box; transform-origin: center; }
+.fund-coin { fill: var(--gold); stroke: #F2D08A; stroke-width: 2; transform-box: fill-box; transform-origin: center; }
+.fund-ring { fill: none; stroke: var(--gold); stroke-width: 2; transform-box: fill-box; transform-origin: center; opacity: 0; }
+.fund-mark { fill: none; stroke: #0B2545; stroke-width: 2.4; stroke-linecap: round; }
+@media (prefers-reduced-motion: no-preference) {
+  .is-active .node { animation: pop .6s var(--ease) both; }
+  .is-active .net-line { animation: fadeIn .6s ease 1s both, flowIn 1.2s linear 1s infinite; }
+  .is-active .fund-coin { animation: pop .7s var(--ease) .9s both, beat 1.8s ease-in-out 2s infinite; }
+  .is-active .fund-ring { animation: ripple 2.2s ease-out 1.6s infinite; }
+  .is-active .net-out { animation: fadeIn .5s ease 2.4s both, flowIn 1s linear 2.4s infinite; }
+  .is-active .node.help { animation: pop .6s var(--ease) .6s both, helpGlow 1.8s ease-in-out 2.8s infinite; }
+}
+@keyframes flowIn { to { stroke-dashoffset: -18; } }
+@keyframes ripple { 0% { transform: scale(1); opacity: .8; } 100% { transform: scale(2.6); opacity: 0; } }
+@keyframes helpGlow { 0%, 100% { filter: none; } 50% { filter: drop-shadow(0 0 6px rgba(212,162,58,.9)); } }
+
+/* Photo backgrounds on journey scenes */
+.slide.photo-bg { background: var(--night); }
+.slide.photo-bg::before { content: ""; position: absolute; inset: 0; background-image: var(--bg); background-size: cover; background-position: center; transform: scale(1.06); }
+.slide.photo-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,37,69,.72) 0%, rgba(11,37,69,.82) 45%, rgba(11,37,69,.94) 100%); }
+.slide.photo-bg > .inner { position: relative; z-index: 1; }
+@media (prefers-reduced-motion: no-preference) {
+  .slide.photo-bg.is-active::before { animation: kenburns 14s ease-out both; }
+}
+@keyframes kenburns { from { transform: scale(1.18) translateY(-1.5%); } to { transform: scale(1.04); } }
+
 /* Controls */
 .chrome { position: absolute; left: 0; right: 0; bottom: 0; z-index: 5; display: flex; align-items: center; gap: 10px;
   padding-block: 12px calc(12px + env(safe-area-inset-bottom, 0px));
@@ -717,30 +770,50 @@ p { margin: 0; font-size: clamp(16px, 2vw, 19px); line-height: 1.55; color: var(
       <div class="paths">
         <div class="path bank rv d2">
           <div class="path-k">Parent A</div>
-          <div class="path-t">RM500/month → Savings</div>
-          <svg viewBox="0 0 200 150" aria-hidden="true">
-            <circle class="coin" cx="100" cy="30" r="7"/>
-            <circle class="coin c2" cx="88" cy="30" r="7"/>
-            <circle class="coin c3" cx="112" cy="30" r="7"/>
-            <path d="M70 70 h60 v52 a10 10 0 0 1 -10 10 h-40 a10 10 0 0 1 -10 -10z" fill="#EEF3F8" stroke="#0B2545" stroke-width="3"/>
-            <rect x="80" y="104" width="40" height="24" rx="4" fill="#D4A23A" opacity=".35"/>
-            <g class="breathe"><circle cx="160" cy="92" r="9" fill="none" stroke="#0B2545" stroke-width="3"/><path d="M146 132 q14 -30 28 0" fill="none" stroke="#0B2545" stroke-width="3" stroke-linecap="round"/></g>
+          <div class="path-t">RM500/month → Savings jar</div>
+          <svg viewBox="0 0 200 160" aria-hidden="true">
+            <defs><clipPath id="jarClip"><path d="M70 52 h60 q8 0 8 10 v68 q0 14 -14 14 h-48 q-14 0 -14 -14 v-68 q0 -10 8 -10z"/></clipPath></defs>
+            <circle class="coin" cx="100" cy="10" r="6"/>
+            <circle class="coin c2" cx="92" cy="10" r="6"/>
+            <circle class="coin c3" cx="108" cy="10" r="6"/>
+            <g clip-path="url(#jarClip)">
+              <rect class="jar-fill" x="56" y="104" width="90" height="44"/>
+              <g class="jar-stack">
+                <ellipse cx="86" cy="136" rx="12" ry="4"/><ellipse cx="86" cy="130" rx="12" ry="4"/><ellipse cx="86" cy="124" rx="12" ry="4"/>
+                <ellipse cx="112" cy="136" rx="12" ry="4"/><ellipse cx="112" cy="130" rx="12" ry="4"/>
+              </g>
+            </g>
+            <path class="jar-glass" d="M70 52 h60 q8 0 8 10 v68 q0 14 -14 14 h-48 q-14 0 -14 -14 v-68 q0 -10 8 -10z"/>
+            <rect class="jar-lid" x="74" y="40" width="52" height="12" rx="4"/>
+            <path class="jar-shine" d="M76 64 v54"/>
+            <path class="jar-cap" d="M52 104 h96"/>
           </svg>
-          <div class="cap">After one year: <b>RM6,000</b> in the bank. No protection.</div>
+          <div class="cap">After one year: <b>RM6,000</b> in the jar. Your protection is capped at what you saved.</div>
         </div>
         <div class="path fund rv d3">
           <div class="path-k">Parent B</div>
-          <div class="path-t">RM500/month → Takaful</div>
-          <svg viewBox="0 0 200 150" aria-hidden="true">
-            <circle class="coin" cx="100" cy="30" r="7"/>
-            <circle class="coin c2" cx="88" cy="30" r="7"/>
-            <circle class="coin c3" cx="112" cy="30" r="7"/>
-            <ellipse cx="100" cy="104" rx="70" ry="26" fill="rgba(79,209,217,.18)" stroke="#4FD1D9" stroke-width="3"/>
-            <g class="breathe"><circle cx="30" cy="70" r="7" fill="none" stroke="#4FD1D9" stroke-width="3"/><path d="M20 98 q10 -22 20 0" fill="none" stroke="#4FD1D9" stroke-width="3" stroke-linecap="round"/></g>
-            <g class="breathe"><circle cx="170" cy="70" r="7" fill="none" stroke="#4FD1D9" stroke-width="3"/><path d="M160 98 q10 -22 20 0" fill="none" stroke="#4FD1D9" stroke-width="3" stroke-linecap="round"/></g>
-            <g class="breathe"><circle cx="100" cy="62" r="9" fill="none" stroke="#fff" stroke-width="3"/><path d="M86 96 q14 -28 28 0" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g>
+          <div class="path-t">RM500/month → Tabarru’ fund</div>
+          <svg viewBox="0 0 200 160" aria-hidden="true">
+            <g class="net">
+              <path class="net-line" d="M100 22 L100 80"/><path class="net-line" d="M141 39 L100 80"/><path class="net-line" d="M158 80 L100 80"/><path class="net-line" d="M141 121 L100 80"/>
+              <path class="net-line" d="M59 121 L100 80"/><path class="net-line" d="M42 80 L100 80"/><path class="net-line" d="M59 39 L100 80"/>
+              <path class="net-out" d="M100 80 L100 136"/>
+            </g>
+            <g class="nodes">
+              <g class="node" style="animation-delay:.2s"><circle cx="100" cy="16" r="4.5"/><path d="M93 30 q7 -12 14 0"/></g>
+              <g class="node" style="animation-delay:.3s"><circle cx="141" cy="33" r="4.5"/><path d="M134 47 q7 -12 14 0"/></g>
+              <g class="node" style="animation-delay:.4s"><circle cx="158" cy="74" r="4.5"/><path d="M151 88 q7 -12 14 0"/></g>
+              <g class="node" style="animation-delay:.5s"><circle cx="141" cy="115" r="4.5"/><path d="M134 129 q7 -12 14 0"/></g>
+              <g class="node help" style="animation-delay:.6s"><circle cx="100" cy="134" r="5.5"/><path d="M92 150 q8 -14 16 0"/></g>
+              <g class="node" style="animation-delay:.7s"><circle cx="59" cy="115" r="4.5"/><path d="M52 129 q7 -12 14 0"/></g>
+              <g class="node" style="animation-delay:.8s"><circle cx="42" cy="74" r="4.5"/><path d="M35 88 q7 -12 14 0"/></g>
+              <g class="node" style="animation-delay:.9s"><circle cx="59" cy="33" r="4.5"/><path d="M52 47 q7 -12 14 0"/></g>
+            </g>
+            <circle class="fund-ring" cx="100" cy="80" r="17"/>
+            <circle class="fund-coin" cx="100" cy="80" r="17"/>
+            <path class="fund-mark" d="M104 72 q-4 -3 -8 0 q-4 4 4 7 q8 3 4 7 q-4 3 -8 0 M100 68 v24"/>
           </svg>
-          <div class="cap">After one year: little in the bank, but a <b>RM1,000,000</b> medical card for the baby.</div>
+          <div class="cap">Your contribution joins a <b>Tabarru’ fund</b> shared by many families. When one family needs help, the fund pays, here with a <b>RM1,000,000</b> medical card for the baby.</div>
         </div>
       </div>
       <p class="fine rv d4">Illustration only. Parent B’s figure refers to a Health360 Smart Value Point of RM1,000,000 with a RM500 deductible, subject to certificate terms.</p>
@@ -748,7 +821,7 @@ p { margin: 0; font-size: clamp(16px, 2vw, 19px); line-height: 1.55; color: var(
   </section>
 
   <!-- 11 The moment -->
-  <section class="slide night" data-label="The moment">
+  <section class="slide night photo-bg" data-label="The moment" style="--bg:url(img/bg-ward1.jpg)">
     <div class="inner center">
       <svg class="alarm-fig" viewBox="0 0 120 120" aria-hidden="true">
         <circle class="body" cx="60" cy="34" r="14"/>
@@ -974,7 +1047,7 @@ p { margin: 0; font-size: clamp(16px, 2vw, 19px); line-height: 1.55; color: var(
 
 
   <!-- J1 Admitted -->
-  <section class="slide night" data-label="Admitted">
+  <section class="slide night photo-bg" data-label="Admitted" style="--bg:url(img/bg-lobby.jpg)">
     <div class="inner center">
       <svg class="scene-art" viewBox="0 0 280 200" aria-hidden="true">
         <rect class="soft" x="60" y="70" width="160" height="110" rx="6"/>
@@ -989,7 +1062,7 @@ p { margin: 0; font-size: clamp(16px, 2vw, 19px); line-height: 1.55; color: var(
   </section>
 
   <!-- J2 Ward -->
-  <section class="slide night" data-label="The room">
+  <section class="slide night photo-bg" data-label="The room" style="--bg:url(img/bg-ward2.jpg)">
     <div class="inner center">
       <svg class="scene-art" viewBox="0 0 280 200" aria-hidden="true">
         <rect class="soft" x="50" y="110" width="180" height="40" rx="8"/>
@@ -1005,7 +1078,7 @@ p { margin: 0; font-size: clamp(16px, 2vw, 19px); line-height: 1.55; color: var(
   </section>
 
   <!-- J3 Treatment -->
-  <section class="slide night" data-label="Treatment">
+  <section class="slide night photo-bg" data-label="Treatment" style="--bg:url(img/bg-theatre.jpg)">
     <div class="inner center">
       <svg class="scene-art" viewBox="0 0 280 200" aria-hidden="true">
         <ellipse class="soft" cx="140" cy="60" rx="70" ry="22"/>
@@ -1020,7 +1093,7 @@ p { margin: 0; font-size: clamp(16px, 2vw, 19px); line-height: 1.55; color: var(
   </section>
 
   <!-- J4 Clinic illnesses -->
-  <section class="slide night" data-label="At the clinic">
+  <section class="slide night photo-bg" data-label="At the clinic" style="--bg:url(img/bg-clinic.jpg)">
     <div class="inner center">
       <svg class="scene-art" viewBox="0 0 280 200" aria-hidden="true">
         <circle class="soft" cx="140" cy="158" r="20"/>
@@ -1038,7 +1111,7 @@ p { margin: 0; font-size: clamp(16px, 2vw, 19px); line-height: 1.55; color: var(
   </section>
 
   <!-- J5 Serious -->
-  <section class="slide night" data-label="If it’s serious">
+  <section class="slide night photo-bg" data-label="If it’s serious" style="--bg:url(img/bg-cancer.jpg)">
     <div class="inner center">
       <svg class="scene-art" viewBox="0 0 280 200" aria-hidden="true">
         <path class="soft" d="M140 20 l70 26 v50 c0 46 -32 74 -70 88 c-38 -14 -70 -42 -70 -88 v-50z"/>
