@@ -1,0 +1,1666 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex, nofollow"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><title>Baby Before Day One</title></head><body>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&display=swap">
+<style>
+/* Layout: one full-screen scene at a time, tap or swipe to advance, illustrated SVG motion in each scene. Same committed look as the AnugerahMax story deck (single light "dawn" world with night scenes). */
+:root {
+  --ink: #0B2545;
+  --ink-soft: #5A6B85;
+  --teal: #178D93;
+  --teal-bright: #4FD1D9;
+  --gold: #D4A23A;
+  --coral: #C2553F;
+  --paper: #FFFFFF;
+  --night: #0B2545;
+  --night-2: #16345E;
+  --mist: #C9D6E8;
+  --mist-2: #8FA3BF;
+  --dawn: linear-gradient(165deg, #F6C9D6 0%, #F2D3E2 18%, #E7D7EC 38%, #D6E1F0 60%, #C3E7F3 82%, #BEEAF4 100%);
+  --serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --ease: cubic-bezier(.22, 1, .36, 1);
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; background: #E7D7EC; color: var(--ink); font-family: var(--sans); overflow: hidden; -webkit-tap-highlight-color: transparent; }
+
+.deck { position: relative; height: 100%; background: var(--dawn); overflow: hidden; }
+.slide {
+  position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center;
+  padding-block: 64px 96px;
+  padding-left: max(24px, env(safe-area-inset-left, 0px)); padding-right: max(24px, env(safe-area-inset-right, 0px));
+  opacity: 0; visibility: hidden; transform: translateX(40px);
+  transition: opacity .6s var(--ease), transform .6s var(--ease), visibility 0s .6s;
+  overflow-y: auto;
+}
+.slide.is-active { opacity: 1; visibility: visible; transform: none; transition: opacity .6s var(--ease), transform .6s var(--ease), visibility 0s; }
+.slide.is-past { transform: translateX(-40px); }
+.slide.night { background: radial-gradient(120% 90% at 50% 0%, var(--night-2) 0%, var(--night) 70%); color: #fff; }
+.inner { width: min(760px, 100%); margin-inline: auto; display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.center { text-align: center; align-items: center; }
+
+.eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--teal); }
+.night .eyebrow { color: var(--teal-bright); }
+h1, h2 { font-family: var(--serif); font-weight: 600; margin: 0; text-wrap: balance; line-height: 1.12; }
+h1 { font-size: clamp(32px, 6vw, 56px); }
+h2 { font-size: clamp(26px, 4.6vw, 42px); }
+.hl { color: var(--teal); }
+.night .hl { color: var(--teal-bright); }
+p { margin: 0; font-size: clamp(16px, 2vw, 19px); line-height: 1.55; color: var(--ink-soft); max-width: 60ch; }
+.night p { color: var(--mist); }
+.fine { font-size: 12.5px; line-height: 1.5; color: var(--ink-soft); }
+.night .fine { color: var(--mist-2); }
+.num { font-variant-numeric: tabular-nums; }
+
+.rv { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .slide .rv { opacity: 0; transform: translateY(22px); }
+  .slide.is-active .rv { opacity: 1; transform: none; transition: opacity .8s var(--ease), transform .8s var(--ease); }
+  .slide.is-active .d1 { transition-delay: .15s; } .slide.is-active .d2 { transition-delay: .3s; }
+  .slide.is-active .d3 { transition-delay: .45s; } .slide.is-active .d4 { transition-delay: .6s; }
+  .slide.is-active .d5 { transition-delay: .75s; } .slide.is-active .d6 { transition-delay: .9s; }
+  .slide.is-active .d7 { transition-delay: 1.05s; } .slide.is-active .d8 { transition-delay: 1.2s; }
+}
+
+/* Intro */
+.brand { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.brand-mark { width: 84px; height: 84px; }
+.brand-mark .ring { fill: none; stroke: var(--teal); stroke-width: 3; }
+.brand-mark .leaf { fill: var(--gold); transform-origin: 50% 60%; }
+@media (prefers-reduced-motion: no-preference) {
+  .is-active .brand-mark .ring { animation: draw 1.6s var(--ease) both; }
+  .is-active .brand-mark .leaf { animation: pop 1s var(--ease) .9s both; }
+}
+.tagline { font-family: var(--serif); font-style: italic; font-size: clamp(24px, 4vw, 32px); color: var(--teal); }
+.tap-hint { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #7C88A0; }
+@media (prefers-reduced-motion: no-preference) { .is-active .tap-hint { animation: nudge 1.8s ease-in-out 2s infinite; } }
+
+/* Cover */
+.badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px; background: rgba(255,255,255,.7); font-size: 13px; font-weight: 600; color: #7A5F0E; }
+.agent-line { font-size: 14px; color: var(--ink-soft); }
+.bump { width: 150px; height: auto; }
+.bump .ln { fill: none; stroke: var(--teal); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.bump .heart { fill: var(--coral); transform-box: fill-box; transform-origin: center; }
+@media (prefers-reduced-motion: no-preference) {
+  .is-active .bump .ln { animation: draw 2s var(--ease) both; }
+  .is-active .bump .heart { animation: pop .8s var(--ease) 1.2s both, beat 1.4s ease-in-out 2s infinite; }
+}
+
+/* Agenda */
+.agenda { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.ag { background: var(--paper); border-radius: 14px; padding: 16px; display: flex; gap: 12px; align-items: flex-start; box-shadow: 0 6px 18px rgba(11,37,69,.06); min-width: 0; }
+.ag .n { flex: none; width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 14px; background: #E3F4F5; color: var(--teal); }
+.ag b { display: block; font-size: 15.5px; }
+.ag span { font-size: 13.5px; color: var(--ink-soft); }
+.promise { background: var(--night); color: #fff; border-radius: 16px; padding: 16px 18px; font-size: 15.5px; line-height: 1.5; }
+.promise b { color: var(--teal-bright); }
+
+/* People grid */
+.people { width: min(520px, 100%); height: auto; }
+.people .p { fill: rgba(255,255,255,.18); transform-box: fill-box; transform-origin: center bottom; }
+.people .p.on { fill: var(--teal-bright); }
+@media (prefers-reduced-motion: no-preference) { .is-active .people .p { animation: pop .6s var(--ease) both; } }
+.kb-fig { font-family: var(--serif); font-size: clamp(48px, 10vw, 88px); font-weight: 700; color: var(--teal-bright); line-height: 1; }
+.kb-fig small { font-size: .35em; color: #CFE0EE; font-weight: 600; }
+
+/* Tiles */
+.glance { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.glance.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.tile { background: var(--paper); border-radius: 14px; padding: 16px; min-width: 0; color: var(--ink); text-align: left; }
+.tile.dark { background: var(--teal); color: #fff; }
+.tile.navy { background: var(--night); color: #fff; }
+.tile .k { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
+.tile.dark .k, .tile.navy .k { color: #CFF1F2; }
+.tile .v { font-family: var(--serif); font-size: clamp(24px, 3.6vw, 34px); font-weight: 700; margin-top: 4px; line-height: 1.1; }
+.tile .s { font-size: 13px; line-height: 1.45; color: var(--ink-soft); margin-top: 4px; }
+.tile.dark .s, .tile.navy .s { color: #CFF1F2; }
+.tile .src { font-size: 11.5px; color: var(--mist-2); margin-top: 8px; }
+.tile.dark .src { color: #BFE7E9; }
+
+/* Underinsured bar */
+.under { display: flex; flex-direction: column; gap: 8px; }
+.under-track { height: 22px; border-radius: 999px; background: rgba(11,37,69,.1); overflow: hidden; display: flex; }
+.under-fill { width: 96%; background: var(--coral); transform-origin: left; border-radius: 999px; }
+.under-labels { display: flex; justify-content: space-between; font-size: 13px; color: var(--ink-soft); gap: 12px; }
+@media (prefers-reduced-motion: no-preference) {
+  .slide .under-fill { transform: scaleX(0); }
+  .is-active .under-fill { transform: scaleX(1); transition: transform 1.6s var(--ease) .6s; }
+}
+
+/* Horizontal bars */
+.hbars { display: flex; flex-direction: column; gap: 14px; }
+.hrow { display: grid; grid-template-columns: 120px minmax(0, 1fr) 64px; gap: 12px; align-items: center; }
+.hrow .lbl { font-size: 14.5px; font-weight: 600; }
+.hrow .val { font-family: var(--serif); font-size: 24px; font-weight: 700; text-align: right; }
+.htrack { height: 34px; }
+.hbar { height: 100%; border-radius: 4px 10px 10px 4px; background: var(--teal); transform-origin: left; }
+.hbar.hi { background: var(--coral); }
+.hbar.lo { background: #9ED3D6; }
+@media (prefers-reduced-motion: no-preference) {
+  .slide .hbar { transform: scaleX(0); }
+  .is-active .hbar { transform: scaleX(1); transition: transform 1.3s var(--ease); }
+  .is-active .hrow:nth-child(2) .hbar { transition-delay: .25s; }
+  .is-active .hrow:nth-child(3) .hbar { transition-delay: .5s; }
+}
+
+/* Vertical bars */
+.bars { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; align-items: end; height: 240px; margin-top: 8px; }
+.bar-col { display: flex; flex-direction: column; align-items: center; gap: 6px; height: 100%; justify-content: flex-end; min-width: 0; }
+.bar-pair { display: flex; align-items: flex-end; height: 100%; width: 100%; justify-content: center; }
+.bar { width: 58%; border-radius: 8px 8px 3px 3px; background: var(--teal); transform-origin: bottom; }
+.bar.hi { background: var(--coral); }
+.bar-val { font-size: 12px; font-weight: 700; }
+.bar-age { font-size: 12px; color: var(--ink-soft); }
+@media (prefers-reduced-motion: no-preference) {
+  .slide .bar { transform: scaleY(0); }
+  .is-active .bar { transform: scaleY(1); transition: transform 1.2s var(--ease); }
+}
+
+/* Cover list */
+.cover-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.cv { background: var(--paper); border-radius: 12px; padding: 14px; min-width: 0; }
+.cv b { display: block; font-size: 14.5px; }
+.cv span { font-size: 13px; color: var(--ink-soft); }
+.cv em { font-style: normal; display: block; font-weight: 700; color: var(--teal); margin-top: 4px; font-size: 14px; }
+.cv.alert { background: var(--night); color: #fff; }
+.cv.alert span { color: var(--mist); }
+.cv.alert em { color: var(--teal-bright); }
+.cv .vs { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
+.cv .vs i { font-style: normal; font-size: 12.5px; font-weight: 700; padding: 3px 8px; border-radius: 999px; }
+.cv .vs .sup { background: #E3F4F5; color: #0F6F74; }
+.cv .vs .ess { background: #FBEDE9; color: #9A3F2D; }
+
+/* Two paths */
+.paths { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.path { border-radius: 16px; padding: 18px 16px 16px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; min-width: 0; }
+.path.bank { background: var(--paper); box-shadow: 0 8px 24px rgba(11,37,69,.08); }
+.path.fund { background: var(--night); color: #fff; }
+.path-k { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
+.fund .path-k { color: var(--mist-2); }
+.path-t { font-weight: 700; font-size: 15px; }
+.path svg { width: 100%; max-width: 220px; height: auto; }
+.path .cap { font-size: 13px; line-height: 1.45; color: var(--ink-soft); }
+.fund .cap { color: var(--mist); }
+.coin { fill: var(--gold); }
+@media (prefers-reduced-motion: no-preference) {
+  .is-active .coin { animation: coinFall 2.4s var(--ease) infinite; }
+  .is-active .coin.c2 { animation-delay: .8s; } .is-active .coin.c3 { animation-delay: 1.6s; }
+  .is-active .breathe { animation: breathe 3s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+}
+
+/* The moment */
+.ecg { width: 100%; max-width: 520px; height: auto; }
+.ecg path { fill: none; stroke: var(--teal-bright); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.alarm-fig { width: 120px; height: auto; }
+.alarm-fig .body { fill: none; stroke: #F2A65A; stroke-width: 4; stroke-linecap: round; }
+@media (prefers-reduced-motion: no-preference) {
+  .is-active .ecg path { animation: draw 2.4s linear both; }
+  .is-active .alarm-fig { animation: startle .5s ease-in-out 1s 3; }
+}
+.big-red { font-family: var(--serif); font-size: clamp(44px, 9vw, 84px); font-weight: 700; color: #F2A65A; line-height: 1; }
+
+/* Steps */
+.steps { display: flex; flex-direction: column; gap: 10px; }
+.step { display: flex; gap: 14px; align-items: flex-start; background: var(--paper); border-radius: 14px; padding: 14px 16px; box-shadow: 0 6px 18px rgba(11,37,69,.06); }
+.step.worst { background: var(--coral); color: #fff; }
+.step .n { flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 14px; background: #FBEDE9; color: var(--coral); }
+.step.worst .n { background: rgba(255,255,255,.2); color: #fff; }
+.step b { display: block; font-size: 15.5px; }
+.step span { font-size: 14px; color: var(--ink-soft); }
+.step.worst span { color: #FBE3DD; }
+.settled { background: var(--teal); color: #fff; border-radius: 18px; padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
+.settled .check { width: 72px; height: 72px; }
+.settled .check circle { fill: rgba(255,255,255,.18); }
+.settled .check path { fill: none; stroke: #fff; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+@media (prefers-reduced-motion: no-preference) { .is-active .settled .check path { animation: draw 1s var(--ease) .6s both; } }
+.settled .fig { font-family: var(--serif); font-size: clamp(24px, 4vw, 32px); font-weight: 600; }
+
+/* Donut */
+.donut-wrap { display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 24px; align-items: center; }
+.donut { position: relative; width: 100%; max-width: 220px; aspect-ratio: 1; }
+.donut svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.donut circle { fill: none; stroke-width: 22; }
+.donut .track { stroke: rgba(11,37,69,.08); }
+.donut-total { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.donut-total .k { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
+.donut-total .v { font-family: var(--serif); font-size: 38px; font-weight: 700; }
+.split { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.split-row { background: var(--paper); border-radius: 12px; padding: 12px 14px; display: flex; gap: 12px; align-items: flex-start; }
+.split-row i { flex: none; width: 12px; height: 12px; border-radius: 3px; margin-top: 4px; }
+.split-row b { display: block; }
+.split-row span { font-size: 13.5px; color: var(--ink-soft); }
+
+/* Pyramid */
+.pyr-wrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 20px; align-items: center; }
+.pyramid { width: 100%; height: auto; }
+.pyramid .tier { transform-box: fill-box; transform-origin: center bottom; }
+.pyramid .t0 { fill: var(--night); }
+.pyramid .t1 { fill: var(--teal); }
+.pyramid .t2 { fill: #5FB7BB; }
+.pyramid .t3 { fill: #A7D9DB; }
+.pyramid .t4 { fill: var(--gold); }
+.pyramid text { font-family: var(--sans); font-weight: 700; text-anchor: middle; }
+.pyramid .lt { fill: #FFFFFF; }
+.pyramid .dk { fill: var(--ink); }
+@media (prefers-reduced-motion: no-preference) {
+  .is-active .pyramid .tier { animation: rise .8s var(--ease) both; }
+  .is-active .pyramid .g1 { animation-delay: .35s; } .is-active .pyramid .g2 { animation-delay: .7s; }
+  .is-active .pyramid .g3 { animation-delay: 1.05s; } .is-active .pyramid .g4 { animation-delay: 1.4s; }
+}
+.rule { background: var(--night); color: #fff; border-radius: 12px; padding: 12px 14px; font-size: 14px; line-height: 1.5; }
+.rule b { color: var(--teal-bright); }
+
+/* Questions and chips */
+.qs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.q { background: var(--paper); border-radius: 14px; padding: 14px 16px; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.q .qk { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--teal); font-weight: 700; }
+.q b { font-size: 15px; line-height: 1.4; }
+.q span { font-size: 13px; color: var(--ink-soft); line-height: 1.45; }
+.chip-group { display: flex; flex-direction: column; gap: 8px; }
+.chip-label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; color: var(--ink-soft); }
+.chips { display: flex; gap: 8px; flex-wrap: wrap; }
+.chip { font: 600 14px var(--sans); color: var(--ink); background: var(--paper); border: 2px solid transparent; border-radius: 999px; padding: 10px 16px; cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--night); color: #fff; border-color: var(--teal-bright); }
+.chip:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
+.said { background: rgba(255,255,255,.75); border-radius: 12px; padding: 12px 14px; font-size: 14px; color: var(--ink); line-height: 1.5; }
+.said b { color: var(--teal); }
+
+/* Options */
+.options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.opt { background: var(--paper); border-radius: 14px; padding: 16px 14px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.opt.rec { background: var(--night); color: #fff; box-shadow: 0 0 0 3px var(--teal); }
+.opt .k { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
+.opt.rec .k { color: var(--teal-bright); }
+.opt .nm { font-weight: 700; font-size: 14px; }
+.opt .v { font-family: var(--serif); font-size: 26px; font-weight: 700; }
+.opt .v small { font-size: 13px; font-family: var(--sans); font-weight: 500; }
+.opt .meta { font-size: 12.5px; color: var(--ink-soft); line-height: 1.5; }
+.opt.rec .meta { color: var(--mist); }
+
+/* Timeline */
+.timeline { position: relative; margin-top: 20px; padding-top: 36px; }
+.tl-line { position: absolute; top: 46px; left: 6px; right: 6px; height: 4px; border-radius: 4px; background: rgba(11,37,69,.12); }
+.tl-fill { position: absolute; top: 46px; left: 6px; height: 4px; border-radius: 4px; background: var(--teal); width: calc(100% - 12px); transform-origin: left; }
+@media (prefers-reduced-motion: no-preference) {
+  .slide .tl-fill { transform: scaleX(0); }
+  .is-active .tl-fill { transform: scaleX(1); transition: transform 2.4s var(--ease) .3s; }
+}
+.tl-points { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.tl-pt { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.tl-pt .dot { width: 24px; height: 24px; border-radius: 50%; background: var(--teal); border: 5px solid #fff; box-shadow: 0 0 0 2px var(--teal); }
+.tl-pt .dot.warn { background: var(--coral); box-shadow: 0 0 0 2px var(--coral); }
+.tl-pt .day { font-family: var(--serif); font-size: 24px; font-weight: 700; }
+.tl-pt b { font-size: 14.5px; }
+.tl-pt span { font-size: 13px; color: var(--ink-soft); }
+
+/* Close */
+.done { width: 96px; height: 96px; border-radius: 50%; background: var(--teal); display: grid; place-items: center; }
+.done svg { width: 44px; height: 44px; }
+.done path { fill: none; stroke: #fff; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+@media (prefers-reduced-motion: no-preference) {
+  .is-active .done { animation: ring 2.4s ease-in-out 1.2s infinite; }
+  .is-active .done path { animation: draw .9s var(--ease) .3s both; }
+}
+.agent { display: flex; gap: 12px; align-items: center; background: rgba(255,255,255,.75); border-radius: 14px; padding: 12px 16px; text-align: left; }
+.agent .av { width: 44px; height: 44px; border-radius: 12px; background: var(--night); color: var(--gold); display: grid; place-items: center; font-family: var(--serif); font-weight: 700; font-size: 18px; flex: none; }
+.agent b { display: block; font-size: 14.5px; }
+.agent span { font-size: 12.5px; color: var(--ink-soft); }
+.next-list { display: flex; flex-direction: column; gap: 8px; text-align: left; width: 100%; }
+.next-list div { background: rgba(255,255,255,.75); border-radius: 12px; padding: 10px 14px; font-size: 14px; color: var(--ink); }
+
+/* Sources */
+.src-list { display: flex; flex-direction: column; gap: 8px; }
+.src-list a { display: block; background: var(--paper); border-radius: 10px; padding: 10px 14px; font-size: 13.5px; color: var(--ink); text-decoration: none; line-height: 1.45; }
+.src-list a span { display: block; color: var(--ink-soft); font-size: 12px; }
+.src-list a:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
+
+
+/* Congenital conditions */
+.cond-head { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 18px; align-items: center; }
+.cond-art { width: 120px; height: auto; }
+.cond-art .ln { fill: none; stroke: var(--teal); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.cond-art .soft { fill: rgba(23,141,147,.10); }
+.cond-art .gold { fill: var(--gold); transform-box: fill-box; transform-origin: center; }
+.cond-title { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.cond-big { display: flex; align-items: center; gap: 14px; font-family: var(--serif); font-size: clamp(22px, 3.6vw, 32px); font-weight: 600; line-height: 1.15; text-wrap: balance; }
+.cond-big b { color: var(--teal); font-weight: 600; }
+.kb27 { font-size: clamp(64px, 11vw, 96px); font-weight: 700; color: var(--coral); line-height: 1; flex: none; }
+.cond { display: flex; flex-direction: column; gap: 10px; background: rgba(255,255,255,.6); border-radius: 14px; padding: 14px; }
+.cond-g { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 10px; align-items: start; }
+.cond-k { display: flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; color: var(--ink-soft); padding-top: 3px; }
+.ic { width: 22px; height: 22px; flex: none; }
+.ic path { fill: none; stroke: var(--teal); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.cond-chips { display: flex; flex-wrap: wrap; gap: 6px; min-width: 0; }
+.cond-chips i { font-style: normal; font-size: 13px; font-weight: 600; color: var(--ink); background: var(--paper); border-radius: 999px; padding: 5px 11px; line-height: 1.35; }
+.cond-chips i.key { background: var(--gold); color: var(--ink); box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 4px var(--gold); }
+.cond-chips i.sup { background: #E3F4F5; color: #0F6F74; }
+@media (prefers-reduced-motion: no-preference) {
+  .is-active .cond-art .ln { animation: draw 2.2s var(--ease) both; }
+  .is-active .cond-art .soft { animation: fadeIn 1.2s ease .8s both; }
+  .is-active .cond-art .pulse { animation: pop .8s var(--ease) 1.4s both, beat 1.4s ease-in-out 2.2s infinite; }
+  .is-active .ic path { animation: draw 1.4s var(--ease) both; }
+  .is-active .cond-chips i { animation: pop .5s var(--ease) both; }
+  .is-active .cond-g:nth-child(1) .ic path, .is-active .cond-g:nth-child(1) i { animation-delay: .5s; }
+  .is-active .cond-g:nth-child(2) .ic path, .is-active .cond-g:nth-child(2) i { animation-delay: .7s; }
+  .is-active .cond-g:nth-child(3) .ic path, .is-active .cond-g:nth-child(3) i { animation-delay: .9s; }
+  .is-active .cond-g:nth-child(4) .ic path, .is-active .cond-g:nth-child(4) i { animation-delay: 1.1s; }
+  .is-active .cond-g:nth-child(5) .ic path, .is-active .cond-g:nth-child(5) i { animation-delay: 1.3s; }
+  .is-active .cond-g:nth-child(6) .ic path, .is-active .cond-g:nth-child(6) i { animation-delay: 1.5s; }
+  .is-active .cond-g:nth-child(7) .ic path, .is-active .cond-g:nth-child(7) i { animation-delay: 1.7s; }
+  .is-active .cond-chips i.key { animation: pop .5s var(--ease) .7s both, glow 2s ease-in-out 1.8s infinite; }
+}
+@keyframes glow { 0%, 100% { box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 4px var(--gold); } 50% { box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 9px rgba(212,162,58,.35); } }
+@media (max-width: 600px) {
+  .cond-head { grid-template-columns: 84px minmax(0, 1fr); gap: 12px; }
+  .cond-art { width: 84px; }
+  .cond-big { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .cond-g { grid-template-columns: 1fr; gap: 6px; }
+}
+
+/* Scene art (line drawings) */
+.scene-art { width: min(260px, 70%); height: auto; align-self: center; }
+.scene-art .ln { fill: none; stroke: var(--teal-bright); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.scene-art .soft { fill: rgba(79,209,217,.12); }
+.scene-art .gold { fill: var(--gold); transform-box: fill-box; transform-origin: center; }
+@media (prefers-reduced-motion: no-preference) {
+  .is-active .scene-art .ln { animation: draw 2.2s var(--ease) both; }
+  .is-active .scene-art .soft { animation: fadeIn 1.2s ease .8s both; }
+  .is-active .scene-art .pulse { animation: pop .8s var(--ease) 1.4s both, beat 1.6s ease-in-out 2.2s infinite; }
+}
+.bed-art { width: min(200px, 55%); }
+
+/* Answer form */
+.form-card { background: rgba(255,255,255,.7); border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; }
+.field { display: flex; flex-direction: column; gap: 6px; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; font-weight: 700; color: var(--ink-soft); }
+.field input { font: 500 16px var(--sans); color: var(--ink); background: var(--paper); border: 2px solid #D6E1F0; border-radius: 10px; padding: 10px 12px; width: 100%; max-width: 420px; letter-spacing: 0; text-transform: none; }
+.field input:focus-visible { outline: none; border-color: var(--teal); }
+.limit-box { display: flex; flex-direction: column; gap: 10px; border-top: 1px dashed #C9D6E8; padding-top: 12px; }
+@media (prefers-reduced-motion: no-preference) { .limit-box:not([hidden]) { animation: rise .5s var(--ease) both; } }
+
+/* Tappable benefit cards */
+.cv-btn { font: inherit; color: inherit; text-align: left; border: 2px solid transparent; cursor: pointer; display: flex; flex-direction: column; gap: 2px; position: relative; }
+.cv-btn b { display: block; padding-right: 64px; }
+.cv-btn .vs { display: flex; }
+.cv-btn .more { position: absolute; top: 12px; right: 12px; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--teal); background: #E3F4F5; border-radius: 999px; padding: 3px 9px; }
+.cv-btn:hover { border-color: #9ED3D6; }
+.cv-btn:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
+.ci { font: 600 13px var(--sans); color: var(--ink); background: var(--paper); border: 0; border-radius: 999px; padding: 5px 11px 5px 22px; line-height: 1.35; cursor: pointer; position: relative; box-shadow: 0 0 0 2px #9ED3D6 inset; }
+.ci::before { content: ""; position: absolute; left: 9px; top: 50%; width: 7px; height: 7px; margin-top: -3.5px; border-radius: 50%; background: var(--teal); }
+.ci.key { background: var(--gold); box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 4px var(--gold); }
+.ci.key::before { background: var(--ink); }
+.ci:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
+@media (prefers-reduced-motion: no-preference) {
+  .is-active .cond-chips .ci { animation: pop .5s var(--ease) both; }
+  .is-active .cond-g:nth-child(1) .ci { animation-delay: .5s; } .is-active .cond-g:nth-child(2) .ci { animation-delay: .7s; }
+  .is-active .cond-g:nth-child(3) .ci { animation-delay: .9s; } .is-active .cond-g:nth-child(5) .ci { animation-delay: 1.3s; }
+  .is-active .cond-g:nth-child(6) .ci { animation-delay: 1.5s; }
+  .is-active .cond-chips .ci.key { animation: pop .5s var(--ease) .7s both, glow 2s ease-in-out 1.8s infinite; }
+}
+
+/* Detail sheet */
+.sheet-bg { position: absolute; inset: 0; z-index: 7; background: rgba(11,37,69,.45); }
+.sheet { position: absolute; z-index: 8; left: max(16px, env(safe-area-inset-left, 0px)); right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); margin-inline: auto; max-width: 620px; max-height: calc(100% - 48px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)); overflow-y: auto; background: var(--paper); color: var(--ink); border-radius: 20px; padding: 22px 20px 20px; box-shadow: 0 24px 60px rgba(11,37,69,.35); }
+@media (prefers-reduced-motion: no-preference) { .sheet:not([hidden]) { animation: rise .45s var(--ease) both; } .sheet-bg:not([hidden]) { animation: fadeIn .3s ease both; } }
+.sheet-x { position: absolute; top: 10px; right: 10px; width: 40px; height: 40px; border-radius: 50%; border: 0; background: #EEF3F8; color: var(--ink); font-size: 22px; cursor: pointer; }
+.sheet-x:focus-visible, .sheet-go:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
+.sheet .sk { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: var(--teal); }
+.sheet h3 { font-family: var(--serif); font-size: clamp(22px, 4vw, 30px); font-weight: 600; margin: 4px 48px 8px 0; line-height: 1.15; text-wrap: balance; }
+.sheet p { font-size: 15px; }
+.sheet .pw { font-size: 17px; color: var(--ink); line-height: 1.5; }
+.sl { list-style: none; margin: 12px 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.sl li { background: #F3F7FB; border-radius: 10px; padding: 9px 12px; font-size: 14.5px; }
+.sl li b { display: block; }
+.sl li span { font-size: 13px; color: var(--ink-soft); }
+@media (prefers-reduced-motion: no-preference) {
+  .sl li { animation: rise .5s var(--ease) both; }
+  .sl li:nth-child(2) { animation-delay: .06s; } .sl li:nth-child(3) { animation-delay: .12s; } .sl li:nth-child(4) { animation-delay: .18s; }
+  .sl li:nth-child(5) { animation-delay: .24s; } .sl li:nth-child(6) { animation-delay: .3s; } .sl li:nth-child(7) { animation-delay: .36s; } .sl li:nth-child(8) { animation-delay: .42s; }
+}
+.sv { display: flex; flex-direction: column; gap: 6px; background: var(--night); color: #fff; border-radius: 12px; padding: 12px 14px; margin: 12px 0 8px; font-size: 14px; line-height: 1.45; }
+.sv b { color: var(--teal-bright); }
+.sheet-go { font: 700 14px var(--sans); color: #fff; background: var(--teal); border: 0; border-radius: 999px; padding: 12px 18px; cursor: pointer; margin-top: 8px; }
+
+/* Pictures */
+.pic { display: block; width: min(280px, 100%); height: auto; margin: 8px auto 4px; }
+.pic .ln { fill: none; stroke: var(--teal); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.pic .soft { fill: rgba(23,141,147,.10); }
+.pic .ghost { fill: none; stroke: #A9B6C8; stroke-width: 3; stroke-dasharray: 6 6; stroke-linecap: round; }
+.pic .hot { fill: rgba(194,85,63,.22); stroke: var(--coral); stroke-width: 3; transform-box: fill-box; transform-origin: center; }
+.pic .hot-ln { fill: none; stroke: var(--coral); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.pic .ray { fill: none; stroke: var(--teal-bright); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 6 8; }
+.pic .yel { fill: #F4D35E; stroke: #C99A1E; stroke-width: 2; }
+.pic .drop { fill: rgba(79,209,217,.5); stroke: var(--teal); stroke-width: 2; }
+.pic .cloud { fill: #E6ECF2; stroke: #B9C6D4; stroke-width: 2; transform-box: fill-box; transform-origin: center; }
+.pic .cloud2 { fill: #FFFFFF; opacity: .85; }
+@media (prefers-reduced-motion: no-preference) {
+  .pic .ln, .pic .hot-ln { animation: draw 1.8s var(--ease) both; }
+  .pic .hot-ln { animation-delay: .9s; }
+  .pic .soft, .pic .yel, .pic .drop, .pic .cloud2 { animation: fadeIn 1s ease .6s both; }
+  .pic .ray { animation: flow 1.2s linear infinite; }
+  .pic .hot { animation: pop .7s var(--ease) 1s both; }
+  .pic .pulse { animation: pop .7s var(--ease) 1s both, beat 1.6s ease-in-out 1.8s infinite; }
+}
+@keyframes flow { to { stroke-dashoffset: -28; } }
+
+/* Smart Value Point bar */
+.svp { display: flex; flex-direction: column; gap: 8px; }
+.svp-track { display: flex; height: 44px; border-radius: 12px; overflow: hidden; background: rgba(11,37,69,.08); }
+.svp-full { flex: 0 0 72%; background: var(--teal); color: #fff; display: flex; align-items: center; padding-left: 14px; font-size: 13px; font-weight: 700; transform-origin: left; }
+.svp-over { flex: 1; background: repeating-linear-gradient(45deg, #178D93 0 10px, #C2553F 10px 13px); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; transform-origin: left; }
+.svp-over span, .svp-full span { text-shadow: 0 1px 2px rgba(11,37,69,.5); white-space: nowrap; }
+.svp-labels { display: grid; grid-template-columns: 1fr auto 1fr; font-size: 12.5px; color: var(--ink-soft); }
+.svp-labels span:nth-child(2) { text-align: center; color: var(--ink); }
+.svp-labels span:last-child { text-align: right; }
+@media (prefers-reduced-motion: no-preference) {
+  .slide .svp-full, .slide .svp-over { transform: scaleX(0); }
+  .is-active .svp-full { transform: scaleX(1); transition: transform 1.4s var(--ease) .4s; }
+  .is-active .svp-over { transform: scaleX(1); transition: transform 1s var(--ease) 1.8s; }
+}
+
+/* Medical card benefit columns */
+.mc-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.mc-col { background: rgba(255,255,255,.06); border-radius: 14px; padding: 12px; display: flex; flex-direction: column; gap: 8px; min-width: 0; text-align: left; }
+.mc-k { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: var(--teal-bright); }
+.mc-row { background: var(--paper); color: var(--ink); border-radius: 10px; padding: 9px 12px; }
+.mc-row b { display: block; font-size: 14px; }
+.mc-row em { font-style: normal; display: block; font-weight: 700; color: var(--teal); font-size: 13.5px; margin-top: 2px; }
+.mc-row span { display: block; font-size: 12.5px; color: var(--ink-soft); }
+@media (prefers-reduced-motion: no-preference) {
+  .is-active .mc-row { animation: rise .55s var(--ease) both; }
+  .is-active .mc-col .mc-row:nth-child(2) { animation-delay: .4s; } .is-active .mc-col .mc-row:nth-child(3) { animation-delay: .5s; }
+  .is-active .mc-col .mc-row:nth-child(4) { animation-delay: .6s; } .is-active .mc-col .mc-row:nth-child(5) { animation-delay: .7s; }
+  .is-active .mc-col .mc-row:nth-child(6) { animation-delay: .8s; } .is-active .mc-col .mc-row:nth-child(7) { animation-delay: .9s; }
+  .is-active .mc-col .mc-row:nth-child(8) { animation-delay: 1s; }
+}
+
+/* Send answers */
+.send-box { width: 100%; background: rgba(255,255,255,.8); border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 10px; text-align: left; }
+.send-summary { font-size: 13.5px; line-height: 1.55; color: var(--ink); white-space: pre-line; }
+.send-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.send-btn { font: 700 15px var(--sans); color: #fff; background: var(--teal); border: 0; border-radius: 999px; padding: 12px 20px; cursor: pointer; }
+.send-btn:disabled { opacity: .55; cursor: default; }
+.copy-btn { font: 600 14px var(--sans); color: var(--ink); background: var(--paper); border: 2px solid #C9D6E8; border-radius: 999px; padding: 10px 16px; cursor: pointer; }
+.send-btn:focus-visible, .copy-btn:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+.send-status { font-size: 13.5px; line-height: 1.45; min-height: 1em; }
+.send-status.ok { color: #0F6F74; font-weight: 700; }
+.send-status.warn { color: #9A3F2D; font-weight: 600; }
+.cover-for { font-family: var(--serif); font-style: italic; font-size: clamp(20px, 3.4vw, 26px); color: var(--ink); }
+.cover-for b { font-style: normal; color: var(--teal); font-weight: 700; }
+
+@media (max-width: 600px) {
+  .mc-cols { grid-template-columns: 1fr; }
+  .svp-full span { font-size: 11px; }
+}
+
+
+.photo { display: block; width: 100%; max-width: 520px; max-height: 46vh; object-fit: contain; margin: 8px auto 0; border-radius: 12px; background: #F3F7FB; }
+@media (prefers-reduced-motion: no-preference) { .photo { animation: rise .6s var(--ease) both; } }
+.credit { font-size: 11.5px !important; color: var(--ink-soft); text-align: center; margin-top: 4px !important; }
+
+
+.step-k { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--mist-2); font-weight: 600; }
+.limit-track { width: min(420px, 100%); height: 18px; border-radius: 999px; background: rgba(255,255,255,.1); overflow: hidden; display: flex; }
+.limit-base { width: 55%; background: var(--teal-bright); }
+.limit-boost { width: 45%; background: var(--gold); transform-origin: left; }
+@media (prefers-reduced-motion: no-preference) {
+  .slide .limit-boost { transform: scaleX(0); }
+  .is-active .limit-boost { transform: scaleX(1); transition: transform 1.4s var(--ease) 1s; }
+}
+.limit-labels { width: min(420px, 100%); display: flex; justify-content: space-between; font-size: 13px; color: var(--mist); }
+
+/* Controls */
+.chrome { position: absolute; left: 0; right: 0; bottom: 0; z-index: 5; display: flex; align-items: center; gap: 10px;
+  padding-block: 12px calc(12px + env(safe-area-inset-bottom, 0px));
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); pointer-events: none; }
+.chrome > * { pointer-events: auto; }
+.nav { width: 44px; height: 44px; border-radius: 50%; border: 0; background: rgba(11,37,69,.85); color: #fff; font-size: 20px; cursor: pointer; display: grid; place-items: center; flex: none; }
+.nav:disabled { opacity: .3; cursor: default; }
+.nav:focus-visible, .notes-btn:focus-visible { outline: 3px solid var(--teal-bright); outline-offset: 2px; }
+.notes-btn { height: 44px; border-radius: 999px; border: 0; padding: 0 14px; background: rgba(11,37,69,.85); color: #fff; font: 600 12px var(--sans); letter-spacing: .06em; text-transform: uppercase; cursor: pointer; flex: none; }
+.progress { flex: 1; display: flex; gap: 4px; min-width: 0; }
+.progress span { flex: 1; height: 4px; border-radius: 4px; background: rgba(11,37,69,.15); overflow: hidden; }
+.progress span.on::after { content: ""; display: block; height: 100%; background: var(--teal); }
+.night-chrome .progress span { background: rgba(255,255,255,.2); }
+.night-chrome .nav, .night-chrome .notes-btn { background: rgba(255,255,255,.16); box-shadow: inset 0 0 0 1px rgba(255,255,255,.35); }
+.night-chrome .progress span.on::after { background: var(--teal-bright); }
+.counter { font-size: 12px; font-weight: 600; color: var(--ink-soft); font-variant-numeric: tabular-nums; min-width: 44px; text-align: right; }
+.night-chrome .counter { color: var(--mist); }
+.ribbon { position: absolute; top: calc(12px + env(safe-area-inset-top, 0px)); left: 50%; transform: translateX(-50%); z-index: 5; font-size: 11.5px; font-weight: 600; letter-spacing: .04em; background: rgba(255,255,255,.85); color: var(--ink); padding: 6px 12px; border-radius: 999px; white-space: nowrap; max-width: calc(100% - 32px); overflow: hidden; text-overflow: ellipsis; }
+
+/* Presenter notes */
+.notes { display: none; }
+.notes-panel { position: absolute; z-index: 6; left: max(16px, env(safe-area-inset-left, 0px)); right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(76px + env(safe-area-inset-bottom, 0px)); margin-inline: auto; max-width: 760px; max-height: 45%; overflow-y: auto; background: #FFFDF6; color: var(--ink); border-radius: 14px; padding: 14px 16px; box-shadow: 0 16px 40px rgba(11,37,69,.28); font-size: 14px; line-height: 1.55; }
+.notes-panel .nk { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: var(--coral); margin-bottom: 6px; }
+.notes-panel p { color: var(--ink); font-size: 14px; margin-top: 6px; max-width: none; }
+
+@keyframes draw { from { stroke-dashoffset: 1200; } to { stroke-dashoffset: 0; } }
+@keyframes pop { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@keyframes rise { from { transform: translateY(30px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes nudge { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+@keyframes beat { 0%, 100% { transform: scale(1); } 15% { transform: scale(1.25); } 30% { transform: scale(1); } 45% { transform: scale(1.18); } }
+@keyframes coinFall { 0% { opacity: 0; transform: translateY(-26px); } 20% { opacity: 1; } 75% { opacity: 1; transform: translateY(34px); } 100% { opacity: 0; transform: translateY(40px); } }
+@keyframes breathe { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+@keyframes startle { 0%, 100% { transform: rotate(0) scale(1); } 25% { transform: rotate(-6deg) scale(1.06); } 75% { transform: rotate(6deg) scale(1.06); } }
+@keyframes ring { 0%, 100% { box-shadow: 0 0 0 0 rgba(23,141,147,.4); } 50% { box-shadow: 0 0 0 22px rgba(23,141,147,0); } }
+
+@media (max-width: 600px) {
+  .slide { padding-block: 56px 92px; }
+  .donut-wrap, .pyr-wrap { grid-template-columns: 1fr; justify-items: center; }
+  .split { width: 100%; }
+  .options, .agenda, .qs { grid-template-columns: 1fr; }
+  .glance { grid-template-columns: 1fr; }
+  .glance.two { grid-template-columns: 1fr; }
+  .bars { height: 190px; gap: 4px; }
+  .bar-val { font-size: 10px; }
+  .tl-pt .day { font-size: 18px; }
+  .paths { gap: 10px; }
+  .path { padding: 14px 10px; }
+  .hrow { grid-template-columns: 92px minmax(0, 1fr) 52px; }
+  .hrow .val { font-size: 19px; }
+}
+</style>
+
+<div class="deck" id="deck">
+  <div class="ribbon" id="ribbon">Prepared for Mrs. Zati Nur Athirah · public data and PruBSN quotations dated 5 Nov 2026</div>
+
+  <!-- 1 Intro -->
+  <section class="slide is-active" data-label="Intro">
+    <div class="inner center">
+      <div class="brand">
+        <svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true">
+          <circle class="ring" cx="50" cy="50" r="40"/>
+          <path class="leaf" d="M50 26c12 10 14 26 0 40-14-14-12-30 0-40z"/>
+        </svg>
+        <div class="eyebrow">ASG Ansar Group</div>
+      </div>
+      <div class="tagline rv d1">Anda Inspirasi Kami</div>
+      <div class="tap-hint rv d3">Tap to begin →</div>
+    </div>
+  </section>
+
+  <!-- 2 Cover -->
+  <section class="slide" data-label="Cover">
+    <div class="inner center">
+      <svg class="bump" viewBox="0 0 150 120" aria-hidden="true">
+        <path class="ln" d="M20 110 c0 -40 20 -70 55 -70 c35 0 55 30 55 70"/>
+        <path class="ln" d="M75 40 c-10 -14 -4 -30 10 -30"/>
+        <path class="heart" d="M75 92 c-14 -10 -22 -18 -22 -27 c0 -6 5 -10 10 -10 c5 0 9 3 12 7 c3 -4 7 -7 12 -7 c5 0 10 4 10 10 c0 9 -8 17 -22 27z"/>
+      </svg>
+      <span class="badge rv">★ PruBSN Asas360 · Baby TotalCare · Health360</span>
+      <h1 class="rv d1">Protecting your baby, <span class="hl">before day one</span></h1>
+      <div class="cover-for rv d2">Tailor-made for <b>Mrs. Zati Nur Athirah</b></div>
+      <p class="rv d2">Due 27 March 2027 · 20 weeks today</p>
+      <div class="agent-line rv d3">Prepared by Muhammad Syakir Badri Bin Md Nizam · ASG Ansar Group</div>
+    </div>
+  </section>
+
+  <!-- 3 Agenda -->
+  <section class="slide" data-label="Today">
+    <div class="inner">
+      <div class="eyebrow rv">How we’ll spend our time</div>
+      <h2 class="rv d1">Four parts, about 45 minutes</h2>
+      <div class="agenda">
+        <div class="ag rv d2"><div class="n">1</div><div><b>What the numbers say</b><span>Protection, medical costs and the cost of having a baby in Malaysia</span></div></div>
+        <div class="ag rv d3"><div class="n">2</div><div><b>A tale of two parents</b><span>Same RM500 a month, two very different outcomes</span></div></div>
+        <div class="ag rv d4"><div class="n">3</div><div><b>Your turn to talk</b><span>Your worries, your plans, your budget. I listen first.</span></div></div>
+        <div class="ag rv d5"><div class="n">4</div><div><b>Options that fit you</b><span>What’s covered, what’s not, and what it costs</span></div></div>
+      </div>
+      <div class="promise rv d6"><b>My promise:</b> you decide. My job is to make the choice clear, including the limits.</div>
+    </div>
+  </section>
+
+  <!-- 4 Protected -->
+  <section class="slide night" data-label="Who is protected">
+    <div class="inner center">
+      <div class="eyebrow rv">How many Malaysians are protected?</div>
+      <svg class="people rv d1" viewBox="0 0 520 120" role="img" aria-label="20 figures, 9 highlighted: about 45 percent insured">
+        <g id="peopleGrid"></g>
+      </svg>
+      <div class="kb-fig num rv d2" data-count="45" data-prefix="~" data-suffix="%">~45%</div>
+      <h2 class="rv d3">of Malaysians are insured, counting takaful. <span class="hl">More than half are not.</span></h2>
+      <div class="glance two" style="width:100%">
+        <div class="tile rv d4"><div class="k">No protection at all</div><div class="v num" data-count="30" data-suffix="%">30%</div><div class="s">of working Malaysians aged 25 to 40</div><div class="src">Zurich Malaysia survey, 1,201 people, late 2021</div></div>
+        <div class="tile rv d5"><div class="k">Takaful penetration</div><div class="v num">19.6%</div><div class="s">of Malaysians, takaful only, 2025</div><div class="src">Malaysian Takaful Association, June 2026</div></div>
+      </div>
+      <p class="fine rv d6">~45%: LIAM CEO Mark O’Dell, April 2024. Less than half of workers have a company group plan (LIAM, Budget 2026 proposals), and group cover usually ends when the job ends.</p>
+    </div>
+  </section>
+
+  <!-- 5 Underinsured -->
+  <section class="slide" data-label="Underinsured">
+    <div class="inner">
+      <div class="eyebrow rv">Covered is not the same as enough</div>
+      <h2 class="rv d1">Most insured families are <span class="hl">underinsured</span></h2>
+      <div class="under rv d2">
+        <div class="under-track" aria-hidden="true"><div class="under-fill"></div></div>
+        <div class="under-labels"><span>Out of 100 insured families…</span><span class="num"><b>94 to 98</b> don’t have enough cover</span></div>
+      </div>
+      <div class="glance two">
+        <div class="tile navy rv d3"><div class="k">Chance of being underinsured</div><div class="v num">94–98%</div><div class="s">for an insured Malaysian family</div></div>
+        <div class="tile rv d4"><div class="k">Average shortfall</div><div class="v num">RM100k–150k</div><div class="s">per family member</div></div>
+      </div>
+      <p class="fine rv d5">Source: Underinsurance Study by Universiti Kebangsaan Malaysia and the Life Insurance Association of Malaysia (2012/13), cited by Bank Negara Malaysia. It is still the main national study on underinsurance; medical costs have risen sharply since.</p>
+    </div>
+  </section>
+
+  <!-- 6 Medical inflation -->
+  <section class="slide" data-label="Medical inflation">
+    <div class="inner">
+      <div class="eyebrow rv">Medical inflation, projected for 2026</div>
+      <h2 class="rv d1">Malaysia’s medical costs are rising <span class="hl">faster than the world’s</span></h2>
+      <div class="hbars rv d2" aria-label="Medical trend rate 2026: Malaysia 16 percent, Asia Pacific 11.3 percent, global 10.3 percent">
+        <div class="hrow"><span class="lbl">Malaysia</span><div class="htrack"><div class="hbar hi" style="width:100%"></div></div><span class="val num">16%</span></div>
+        <div class="hrow"><span class="lbl">Asia Pacific</span><div class="htrack"><div class="hbar" style="width:70.6%"></div></div><span class="val num">11.3%</span></div>
+        <div class="hrow"><span class="lbl">Global</span><div class="htrack"><div class="hbar lo" style="width:64.4%"></div></div><span class="val num">10.3%</span></div>
+      </div>
+      <p class="rv d3">Malaysia held at 15% for three years. 2026 is projected to be the highest since 2021.</p>
+      <p class="fine rv d4">Medical trend rate = yearly rise in medical cost per insured person. Malaysia and Asia Pacific: Aon Global Medical Trend Rates Report 2026. Global: WTW Global Medical Trends Survey 2026.</p>
+    </div>
+  </section>
+
+  <!-- 7 Compounding -->
+  <section class="slide" data-label="RM10,000 bill">
+    <div class="inner">
+      <div class="eyebrow rv">What 15% a year does</div>
+      <h2 class="rv d1">A RM10,000 hospital bill today could be <span class="hl">RM20,000</span> in five years</h2>
+      <div class="bars rv d2" aria-label="RM10,000 growing 15 percent a year for five years">
+        <div class="bar-col"><div class="bar-val num">RM10,000</div><div class="bar-pair"><div class="bar" style="height:50%"></div></div><div class="bar-age">Today</div></div>
+        <div class="bar-col"><div class="bar-val num">RM11,500</div><div class="bar-pair"><div class="bar" style="height:57%"></div></div><div class="bar-age">Year 1</div></div>
+        <div class="bar-col"><div class="bar-val num">RM13,225</div><div class="bar-pair"><div class="bar" style="height:66%"></div></div><div class="bar-age">Year 2</div></div>
+        <div class="bar-col"><div class="bar-val num">RM15,209</div><div class="bar-pair"><div class="bar" style="height:76%"></div></div><div class="bar-age">Year 3</div></div>
+        <div class="bar-col"><div class="bar-val num">RM17,490</div><div class="bar-pair"><div class="bar hi" style="height:87%"></div></div><div class="bar-age">Year 4</div></div>
+        <div class="bar-col"><div class="bar-val num">RM20,114</div><div class="bar-pair"><div class="bar hi" style="height:100%"></div></div><div class="bar-age">Year 5</div></div>
+      </div>
+      <p class="fine rv d3">Illustration: RM10,000 compounded at 15% a year, Malaysia’s medical trend rate for 2023–2025. Not a forecast for any hospital or treatment.</p>
+    </div>
+  </section>
+
+  <!-- 8 Claims -->
+  <section class="slide night" data-label="Claims">
+    <div class="inner">
+      <div class="eyebrow rv">Medical claims in Malaysia</div>
+      <h2 class="rv d1">Families are using their cover <span class="hl">more than ever</span></h2>
+      <div class="glance">
+        <div class="tile rv d2"><div class="k">Medical claims, 2025</div><div class="v num">RM9.4 bil</div><div class="s">paid by life insurers, more than half of all their payouts</div><div class="src">LIAM Annual Report 2025</div></div>
+        <div class="tile dark rv d3"><div class="k">In two years</div><div class="v num" data-count="56" data-prefix="+" data-suffix="%">+56%</div><div class="s">rise in medical claims, 2021 to 2023</div><div class="src">LIAM, PIAM and MTA, Nov 2024</div></div>
+        <div class="tile rv d4"><div class="k">Takaful benefits, 2025</div><div class="v num">RM10.6 bil</div><div class="s">paid by the takaful industry</div><div class="src">Malaysian Takaful Association, June 2026</div></div>
+      </div>
+      <p class="rv d5">Behind each ringgit is a family that didn’t have to pay that bill alone.</p>
+    </div>
+  </section>
+
+  <!-- 9 Baby cost -->
+  <section class="slide" data-label="Cost of a baby">
+    <div class="inner">
+      <div class="eyebrow rv">Having a baby in a Klang Valley private hospital</div>
+      <h2 class="rv d1">The package price is <span class="hl">only the start</span></h2>
+      <div class="cover-grid">
+        <div class="cv rv d2"><b>Normal delivery package</b><span>e.g. Pantai hospitals</span><em class="num">RM3,199 – RM3,999</em></div>
+        <div class="cv rv d2"><b>Caesarean package</b><span>e.g. Pantai hospitals</span><em class="num">RM6,899 – RM8,550</em></div>
+        <div class="cv rv d3"><b>Caesarean, premium KL hospital</b><span>e.g. Gleneagles KL</span><em class="num">RM11,000 – RM20,000</em></div>
+        <div class="cv alert rv d3"><b>NICU, private hospital</b><span>Not in the package, per day</span><em class="num">about RM500 – RM1,500</em></div>
+      </div>
+      <div class="promise rv d4">Packages usually <b>exclude</b> complications such as jaundice treatment, NICU and baby resuscitation. Ten days in NICU could add <b>RM5,000 – RM15,000</b>.</div>
+      <p class="fine rv d5">Delivery packages: iMoney guide, updated Oct 2026; some exclude doctors’ fees. NICU: published estimate (Hargakosmy, 2025), varies by hospital. Check your hospital’s current price.</p>
+    </div>
+  </section>
+
+  <!-- 10 Two paths -->
+  <section class="slide" data-label="Two paths">
+    <div class="inner">
+      <div class="eyebrow rv">A tale of two parents, RM500 a month</div>
+      <h2 class="rv d1">Same money, two choices. What happens when life doesn’t wait?</h2>
+      <div class="paths">
+        <div class="path bank rv d2">
+          <div class="path-k">Parent A</div>
+          <div class="path-t">RM500/month → Savings</div>
+          <svg viewBox="0 0 200 150" aria-hidden="true">
+            <circle class="coin" cx="100" cy="30" r="7"/>
+            <circle class="coin c2" cx="88" cy="30" r="7"/>
+            <circle class="coin c3" cx="112" cy="30" r="7"/>
+            <path d="M70 70 h60 v52 a10 10 0 0 1 -10 10 h-40 a10 10 0 0 1 -10 -10z" fill="#EEF3F8" stroke="#0B2545" stroke-width="3"/>
+            <rect x="80" y="104" width="40" height="24" rx="4" fill="#D4A23A" opacity=".35"/>
+            <g class="breathe"><circle cx="160" cy="92" r="9" fill="none" stroke="#0B2545" stroke-width="3"/><path d="M146 132 q14 -30 28 0" fill="none" stroke="#0B2545" stroke-width="3" stroke-linecap="round"/></g>
+          </svg>
+          <div class="cap">After one year: <b>RM6,000</b> in the bank. No protection.</div>
+        </div>
+        <div class="path fund rv d3">
+          <div class="path-k">Parent B</div>
+          <div class="path-t">RM500/month → Takaful</div>
+          <svg viewBox="0 0 200 150" aria-hidden="true">
+            <circle class="coin" cx="100" cy="30" r="7"/>
+            <circle class="coin c2" cx="88" cy="30" r="7"/>
+            <circle class="coin c3" cx="112" cy="30" r="7"/>
+            <ellipse cx="100" cy="104" rx="70" ry="26" fill="rgba(79,209,217,.18)" stroke="#4FD1D9" stroke-width="3"/>
+            <g class="breathe"><circle cx="30" cy="70" r="7" fill="none" stroke="#4FD1D9" stroke-width="3"/><path d="M20 98 q10 -22 20 0" fill="none" stroke="#4FD1D9" stroke-width="3" stroke-linecap="round"/></g>
+            <g class="breathe"><circle cx="170" cy="70" r="7" fill="none" stroke="#4FD1D9" stroke-width="3"/><path d="M160 98 q10 -22 20 0" fill="none" stroke="#4FD1D9" stroke-width="3" stroke-linecap="round"/></g>
+            <g class="breathe"><circle cx="100" cy="62" r="9" fill="none" stroke="#fff" stroke-width="3"/><path d="M86 96 q14 -28 28 0" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g>
+          </svg>
+          <div class="cap">After one year: little in the bank, but a <b>RM1,000,000</b> medical card for the baby.</div>
+        </div>
+      </div>
+      <p class="fine rv d4">Illustration only. Parent B’s figure refers to a Health360 Smart Value Point of RM1,000,000 with a RM500 deductible, subject to certificate terms.</p>
+    </div>
+  </section>
+
+  <!-- 11 The moment -->
+  <section class="slide night" data-label="The moment">
+    <div class="inner center">
+      <svg class="alarm-fig" viewBox="0 0 120 120" aria-hidden="true">
+        <circle class="body" cx="60" cy="34" r="14"/>
+        <path class="body" d="M30 104 q30 -60 60 0"/>
+        <path class="body" d="M22 40 l-12 -8 M98 40 l12 -8 M60 6 v-6"/>
+      </svg>
+      <div class="eyebrow rv d1">One year later, the baby is admitted with a serious infection</div>
+      <svg class="ecg rv d1" viewBox="0 0 520 80" aria-hidden="true"><path d="M0 40 h150 l14 -26 l16 54 l16 -64 l14 36 h40 l12 -16 l12 16 h242"/></svg>
+      <h2 class="rv d2">The hospital bill</h2>
+      <div class="big-red num rv d3" data-count="30000" data-prefix="RM">RM30,000</div>
+      <p class="rv d4">Illustrative bill for a private-hospital stay with intensive treatment.</p>
+    </div>
+  </section>
+
+  <!-- 12 Parent A -->
+  <section class="slide" data-label="Parent A">
+    <div class="inner">
+      <div class="eyebrow rv" style="color:var(--coral)">Parent A: saved at the bank</div>
+      <h2 class="rv d1">RM6,000 saved. RM30,000 needed. The gap has to come from somewhere.</h2>
+      <div class="steps">
+        <div class="step rv d2"><div class="n">1</div><div><b>Use all the savings</b><span>RM6,000 gone in one admission. Still RM24,000 short.</span></div></div>
+        <div class="step rv d3"><div class="n">2</div><div><b>Sell what you can</b><span>Gold, a car, anything of value, often below its worth.</span></div></div>
+        <div class="step rv d4"><div class="n">3</div><div><b>Ask family and relatives</b><span>During the hardest week of your life.</span></div></div>
+        <div class="step worst rv d5"><div class="n">4</div><div><b>Still short? Borrow</b><span>A personal loan or credit card, repaid with interest for years.</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13 Parent B -->
+  <section class="slide" data-label="Parent B">
+    <div class="inner">
+      <div class="eyebrow rv">Parent B: protected by takaful</div>
+      <h2 class="rv d1">Parent B pays the <span class="hl">RM500 deductible</span>.</h2>
+      <div class="settled rv d2">
+        <svg class="check" viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="36"/><path d="M22 37 l10 10 l19 -21"/></svg>
+        <div class="fig">The medical card handles the eligible bill.</div>
+        <div>No selling, no borrowing, no asking. The family focuses on the baby.</div>
+      </div>
+      <p class="fine rv d3">Illustration only. Health360 pays eligible charges subject to the RM500 deductible, the Smart Value Point, waiting periods (30 days for illness, 120 days for specified illnesses), exclusions and certificate terms. It excludes newborn conditions in the first 30 days after birth and congenital conditions.</p>
+    </div>
+  </section>
+
+  <!-- 14 Parent C -->
+  <section class="slide" data-label="Do both">
+    <div class="inner">
+      <div class="eyebrow rv">The smart move</div>
+      <h2 class="rv d1">The best plan isn’t A or B. <span class="hl">It’s both.</span></h2>
+      <div class="donut-wrap">
+        <div class="donut rv d2">
+          <svg viewBox="0 0 220 220" aria-hidden="true">
+            <circle class="track" cx="110" cy="110" r="88"/>
+            <circle class="seg" cx="110" cy="110" r="88" stroke="#0B2545" data-frac="0.69" data-start="0"/>
+            <circle class="seg" cx="110" cy="110" r="88" stroke="#D4A23A" data-frac="0.31" data-start="0.69"/>
+          </svg>
+          <div class="donut-total"><span class="k">Per month</span><span class="v num" data-count="500" data-prefix="RM">RM500</span></div>
+        </div>
+        <div class="split">
+          <div class="split-row rv d3"><i style="background:#0B2545"></i><div><b class="num">RM345 · Protection first</b><span>Example: the baby’s takaful plan with a medical card</span></div></div>
+          <div class="split-row rv d4"><i style="background:#D4A23A"></i><div><b class="num">RM155 · Emergency savings</b><span>About RM1,860 after a year, for the deductible and daily costs</span></div></div>
+          <div class="split-row rv d5"><i style="background:#178D93"></i><div><b>Protect the big risks, save for the small ones</b><span>Takaful handles what savings can’t. Savings handle what takaful doesn’t.</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15 Pyramid -->
+  <section class="slide" data-label="Financial pyramid">
+    <div class="inner">
+      <div class="eyebrow rv">How to build family wealth</div>
+      <h2 class="rv d1">Every strong pyramid starts with <span class="hl">protection</span></h2>
+      <div class="pyr-wrap">
+        <svg class="pyramid rv d2" viewBox="0 0 600 420" role="img" aria-label="Financial pyramid, from the base up: protection, emergency fund, savings and goals, investment, legacy">
+          <g class="tier g0"><polygon class="t0" points="20,410 580,410 528,336 72,336"/><text class="lt" x="300" y="381" font-size="24">Protection</text></g>
+          <g class="tier g1"><polygon class="t1" points="76,330 524,330 472,256 128,256"/><text class="lt" x="300" y="301" font-size="22">Emergency fund</text></g>
+          <g class="tier g2"><polygon class="t2" points="132,250 468,250 416,176 184,176"/><text class="dk" x="300" y="221" font-size="20">Savings &amp; goals</text></g>
+          <g class="tier g3"><polygon class="t3" points="188,170 412,170 360,96 240,96"/><text class="dk" x="300" y="141" font-size="19">Investment</text></g>
+          <g class="tier g4"><polygon class="t4" points="244,90 356,90 300,16"/><text class="dk" x="300" y="76" font-size="15">Legacy</text></g>
+        </svg>
+        <div class="split">
+          <div class="split-row rv d3"><i style="background:#D4A23A"></i><div><b>Legacy</b><span>Hibah and wasiat, so wealth passes on smoothly</span></div></div>
+          <div class="split-row rv d3"><i style="background:#A7D9DB"></i><div><b>Investment</b><span>Grow wealth once the base is safe</span></div></div>
+          <div class="split-row rv d4"><i style="background:#5FB7BB"></i><div><b>Savings &amp; goals</b><span>The baby’s education, a home, Hajj</span></div></div>
+          <div class="split-row rv d4"><i style="background:#178D93"></i><div><b>Emergency fund</b><span>3 to 6 months of expenses</span></div></div>
+          <div class="split-row rv d5"><i style="background:#0B2545"></i><div><b>Protection</b><span>Medical, life and critical illness cover</span></div></div>
+        </div>
+      </div>
+      <div class="rule rv d6"><b>A simple guide:</b> keep protection to about 10% of monthly income, so it protects your lifestyle without taking it over.</div>
+    </div>
+  </section>
+
+  <!-- 16 Your turn: family -->
+  <section class="slide" data-label="About your family">
+    <div class="inner">
+      <div class="eyebrow rv">Your turn · about your family</div>
+      <h2 class="rv d1">Tell me a little about your plans</h2>
+      <div class="form-card rv d2">
+        <span class="chip-label" id="lblHosp">Where are you planning to deliver?</span>
+        <div class="chips" role="group" aria-labelledby="lblHosp" data-group="hosp">
+          <button class="chip" type="button" id="hosp-gov" aria-pressed="false" data-val="Government hospital">Government hospital</button>
+          <button class="chip" type="button" id="hosp-pri" aria-pressed="false" data-val="Private hospital">Private hospital</button>
+          <button class="chip" type="button" id="hosp-und" aria-pressed="false" data-val="Still deciding">Still deciding</button>
+        </div>
+        <label class="field" for="hospName"><span>Hospital name (optional)</span><input id="hospName" type="text" autocomplete="off" placeholder="e.g. Pantai Hospital Kuala Lumpur"></label>
+      </div>
+      <div class="form-card rv d3">
+        <span class="chip-label" id="lblEx">What protection do you have today? Choose any.</span>
+        <div class="chips" role="group" aria-labelledby="lblEx" data-group="ex" data-multi="true">
+          <button class="chip" type="button" id="ex-mc" aria-pressed="false" data-val="Medical card">Medical card</button>
+          <button class="chip" type="button" id="ex-grp" aria-pressed="false" data-val="Company group medical">Company group medical</button>
+          <button class="chip" type="button" id="ex-life" aria-pressed="false" data-val="Life cover">Life cover</button>
+          <button class="chip" type="button" id="ex-ci" aria-pressed="false" data-val="Critical illness">Critical illness</button>
+          <button class="chip" type="button" id="ex-none" aria-pressed="false" data-val="None yet">None yet</button>
+        </div>
+        <div class="limit-box" id="limitBox" hidden>
+          <label class="field" for="mcLimit"><span>Medical card limit (RM)</span><input id="mcLimit" type="number" inputmode="numeric" min="0" step="1000" placeholder="e.g. 150000"></label>
+          <span class="chip-label" id="lblLt">Is that limit…</span>
+          <div class="chips" role="group" aria-labelledby="lblLt" data-group="lt">
+            <button class="chip" type="button" id="lt-ann" aria-pressed="false" data-val="Annual limit">Per year</button>
+            <button class="chip" type="button" id="lt-life" aria-pressed="false" data-val="Lifetime limit">For life</button>
+            <button class="chip" type="button" id="lt-ns" aria-pressed="false" data-val="Not sure">Not sure</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 17 Your turn: priorities -->
+  <section class="slide" data-label="What matters">
+    <div class="inner">
+      <div class="eyebrow rv">Your turn · what matters most</div>
+      <h2 class="rv d1">Tap what matters to you</h2>
+      <div class="chip-group rv d2">
+        <span class="chip-label" id="lblPri">Biggest worries (choose any)</span>
+        <div class="chips" role="group" aria-labelledby="lblPri" data-group="pri" data-multi="true">
+          <button class="chip" type="button" id="pri-preg" aria-pressed="false" data-val="Pregnancy complications" data-text="pregnancy complications">Pregnancy complications</button>
+          <button class="chip" type="button" id="pri-nicu" aria-pressed="false" data-val="NICU &amp; newborn care" data-text="NICU and newborn care">NICU &amp; newborn care</button>
+          <button class="chip" type="button" id="pri-cong" aria-pressed="false" data-val="Congenital conditions" data-text="congenital conditions">Congenital conditions</button>
+          <button class="chip" type="button" id="pri-med" aria-pressed="false" data-val="Medical card as the baby grows" data-text="a medical card as the baby grows">Medical card as the baby grows</button>
+          <button class="chip" type="button" id="pri-mum" aria-pressed="false" data-val="Mum's wellbeing after birth" data-text="Mum’s wellbeing after birth">Mum’s wellbeing after birth</button>
+        </div>
+      </div>
+      <div class="chip-group rv d3">
+        <span class="chip-label" id="lblBud">Monthly amount you can keep up long term</span>
+        <div class="chips" role="group" aria-labelledby="lblBud" data-group="bud">
+          <button class="chip" type="button" id="bud-1" aria-pressed="false" data-val="RM100–150" data-text="RM100 to RM150">RM100–150</button>
+          <button class="chip" type="button" id="bud-2" aria-pressed="false" data-val="RM150–300" data-text="RM150 to RM300">RM150–300</button>
+          <button class="chip" type="button" id="bud-3" aria-pressed="false" data-val="RM300–450" data-text="RM300 to RM450">RM300–450</button>
+          <button class="chip" type="button" id="bud-4" aria-pressed="false" data-val="RM450+" data-text="more than RM450">RM450+</button>
+        </div>
+      </div>
+      <div class="said rv d4" id="youSaid">Your choices show here and on the options screen.</div>
+      <p class="fine rv d5">Your taps stay on this screen only. Nothing is saved or sent.</p>
+    </div>
+  </section>
+
+  <!-- 18 Three layers -->
+  <section class="slide night" data-label="How it fits">
+    <div class="inner">
+      <div class="eyebrow rv">How the plan fits together</div>
+      <h2 class="rv d1">Three parts, <span class="hl">three different jobs</span></h2>
+      <div class="cover-grid" style="grid-template-columns:1fr">
+        <div class="cv rv d2"><b>PruBSN Asas360 · the base</b><span>Investment-linked takaful: protection plus investment units. Fund returns and long-term sustainability are not guaranteed.</span></div>
+        <div class="cv rv d3"><b>Baby TotalCare · pregnancy and newborn cash</b><span>Pays set amounts for listed events during pregnancy and the baby’s early years. No waiting period. It is not a medical card.</span><em>Cover for the unborn baby from 13 to 36 weeks of pregnancy</em></div>
+        <div class="cv rv d4"><b>Health360 · the medical card</b><span>Pays eligible hospital bills: RM200 room, RM1,000,000 Smart Value Point, RM500 deductible. Waiting periods apply. Excludes the first 30 days of newborn conditions and congenital conditions.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 19 Superior vs Essential -->
+  <section class="slide" data-label="Baby TotalCare plans">
+    <div class="inner">
+      <div class="eyebrow rv">Baby TotalCare · Superior vs Essential</div>
+      <h2 class="rv d1">At birth, <span class="hl">Baby TotalCare</span> does the heavy lifting</h2>
+      <p class="rv d1" style="font-size:14px">Tap a card with <b style="color:var(--teal)">Details</b> to see exactly what it covers.</p>
+      <div class="cover-grid">
+        <div class="cv rv d2"><b>Emergency caesarean before 36 weeks</b><div class="vs"><i class="sup">Superior RM5,000</i><i class="ess">Essential none</i></div></div>
+        <div class="cv rv d2"><b>NICU / HDU, up to 60 days</b><div class="vs"><i class="sup">RM500/day</i><i class="ess">RM400/day</i></div></div>
+        <div class="cv rv d3"><b>Incubator, first 60 days</b><div class="vs"><i class="sup">RM300/day</i><i class="ess">RM200/day</i></div></div>
+        <button class="cv cv-btn rv d3" type="button" data-sheet="jaundice"><b>Jaundice needing phototherapy</b><span class="vs"><i class="sup">RM2,000</i><i class="ess">RM1,000</i></span><span class="more">Details</span></button>
+        <button class="cv cv-btn rv d4" type="button" data-sheet="cong"><b>Congenital conditions, hospital, to age 7</b><span class="vs"><i class="sup">up to RM50,000/yr</i><i class="ess">up to RM30,000/yr</i></span><span class="more">Details</span></button>
+        <button class="cv cv-btn rv d4" type="button" data-sheet="preg"><b>Specified pregnancy complication</b><span class="vs"><i class="sup">RM8,000</i><i class="ess">RM5,000</i></span><span class="more">Details</span></button>
+        <button class="cv cv-btn rv d5" type="button" data-sheet="mental"><b>Postnatal depression or anxiety</b><span class="vs"><i class="sup">RM5,000</i><i class="ess">none</i></span><span class="more">Details</span></button>
+        <button class="cv cv-btn rv d5" type="button" data-sheet="dev"><b>Child development conditions</b><span class="vs"><i class="sup">up to RM5,000/yr</i><i class="ess">none</i></span><span class="more">Details</span></button>
+      </div>
+      <p class="fine rv d6">From the PruBSN quotations dated 5 Nov 2026 (version 1.3.76.0). Listed benefits are subject to definitions, pre-existing condition exclusions and certificate terms.</p>
+    </div>
+  </section>
+
+  <!-- 19b Congenital conditions covered -->
+  <section class="slide" data-label="Conditions covered">
+    <div class="inner">
+      <div class="cond-head">
+        <svg class="cond-art" viewBox="0 0 160 170" aria-hidden="true">
+          <path class="soft" d="M80 10 l62 24 v44 c0 42 -28 68 -62 82 c-34 -14 -62 -40 -62 -82 v-44z"/>
+          <path class="ln" d="M80 10 l62 24 v44 c0 42 -28 68 -62 82 c-34 -14 -62 -40 -62 -82 v-44z"/>
+          <circle class="ln" cx="80" cy="62" r="15"/>
+          <path class="ln" d="M52 128 c0 -26 12 -42 28 -42 c16 0 28 16 28 42 M60 106 c8 6 32 6 40 0"/>
+          <path class="ln" d="M73 60 h0.1 M87 60 h0.1 M74 68 q6 5 12 0"/>
+          <path class="gold pulse" d="M80 150 c-7 -5 -11 -9 -11 -13 c0 -3 2 -5 5 -5 c2 0 4 1 6 3 c2 -2 4 -3 6 -3 c3 0 5 2 5 5 c0 4 -4 8 -11 13z"/>
+        </svg>
+        <div class="cond-title">
+          <div class="eyebrow rv">Baby TotalCare · congenital conditions covered</div>
+          <div class="cond-big rv d1"><span class="kb27 num" data-count="27">27</span><span>conditions a baby can be born with, <b>listed by name</b></span></div>
+        </div>
+      </div>
+      <div class="hbars rv d2" aria-label="Yearly hospital limit for congenital conditions: Superior RM50,000, Essential RM30,000">
+        <div class="hrow"><span class="lbl">Superior</span><div class="htrack"><div class="hbar" style="width:100%"></div></div><span class="val num">RM50k</span></div>
+        <div class="hrow"><span class="lbl">Essential</span><div class="htrack"><div class="hbar lo" style="width:60%"></div></div><span class="val num">RM30k</span></div>
+      </div>
+      <p class="rv d2" style="font-size:14px">Hospital bills a year, until age 7 · plus <b style="color:var(--ink)">RM100 a day</b> hospital allowance, up to 30 days a year, in both plans. <b style="color:var(--teal)">Tap a condition with a dot to see a picture.</b></p>
+      <div class="cond rv d3">
+        <div class="cond-g"><span class="cond-k"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20 C5 14 3 11 3 8 a4 4 0 0 1 9 -1 a4 4 0 0 1 9 1 c0 3 -2 6 -9 12z"/></svg>Heart</span><div class="cond-chips"><button class="ci" type="button" data-sheet="pic-vsd">Ventricular septal defect</button><button class="ci" type="button" data-sheet="pic-asd">Atrial septal defect</button><i>Tetralogy of Fallot</i><i>Transposition of the great vessels</i><i>Coarctation of the aorta</i><i>Truncus arteriosus</i><i>Patent ductus arteriosus</i></div></div>
+        <div class="cond-g"><span class="cond-k"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12 C5 6 19 6 22 12 C19 18 5 18 2 12z M15 12 a3 3 0 1 1 -6 0 a3 3 0 1 1 6 0z"/></svg>Face, eyes &amp; ears</span><div class="cond-chips"><button class="ci key" type="button" data-sheet="pic-cleft">Cleft lip, with or without cleft palate</button><button class="ci" type="button" data-sheet="pic-cataract">Congenital cataract</button><i>Congenital blindness</i><button class="ci" type="button" data-sheet="pic-deaf">Congenital deafness</button><i>Retinopathy of prematurity</i></div></div>
+        <div class="cond-g"><span class="cond-k"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 v20 M8 5 h8 M7 9 h10 M7 13 h10 M8 17 h8"/></svg>Brain &amp; spine</span><div class="cond-chips"><button class="ci" type="button" data-sheet="pic-hydro">Infantile hydrocephalus</button><i>Cerebral palsy</i><button class="ci" type="button" data-sheet="pic-spina">Spina bifida</button></div></div>
+        <div class="cond-g"><span class="cond-k"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 v6 M12 9 c-4 0 -7 3 -7 7 v4 c3 0 5 -2 5 -5 M12 9 c4 0 7 3 7 7 v4 c-3 0 -5 -2 -5 -5"/></svg>Digestion &amp; breathing</span><div class="cond-chips"><i>Oesophageal atresia</i><i>Tracheo-oesophageal fistula</i><i>Congenital diaphragmatic hernia</i><i>Pyloric stenosis</i><i>Biliary atresia</i><i>Anal atresia</i></div></div>
+        <div class="cond-g"><span class="cond-k"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7 L17 17 M7 7 a2.5 2.5 0 1 0 -3 -1 a2.5 2.5 0 1 0 1 -3 M17 17 a2.5 2.5 0 1 0 3 1 a2.5 2.5 0 1 0 -1 3"/></svg>Bones &amp; limbs</span><div class="cond-chips"><button class="ci" type="button" data-sheet="pic-ddh">Developmental dysplasia of the hip</button><button class="ci" type="button" data-sheet="pic-hipdis">Congenital hip dislocation</button><button class="ci" type="button" data-sheet="pic-club">Clubfoot</button><i>Absence of two limbs</i></div></div>
+        <div class="cond-g"><span class="cond-k"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4 v16 M4 12 h16"/></svg>Other</span><div class="cond-chips"><button class="ci" type="button" data-sheet="pic-down">Down syndrome</button><i>Kidney &amp; urinary tract abnormalities (CAKUT)</i></div></div>
+        <div class="cond-g"><span class="cond-k"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 l2.6 5.6 6 .7 -4.5 4.1 1.2 6 -5.3 -3 -5.3 3 1.2 -6 -4.5 -4.1 6 -.7z"/></svg>Superior only</span><div class="cond-chips"><i class="sup">All other structural congenital anomalies</i></div></div>
+      </div>
+      <p class="fine rv d4">Hospitalisation reimbursement, from the PruBSN quotation dated 5 Nov 2026. Each condition must meet the certificate definition. Consultations, therapy or surgery outside a hospital admission may not qualify; confirm a specific treatment with PruBSN. Health360 excludes congenital conditions, so this benefit is the cover for them.</p>
+    </div>
+  </section>
+
+
+  <!-- J1 Admitted -->
+  <section class="slide night" data-label="Admitted">
+    <div class="inner center">
+      <svg class="scene-art" viewBox="0 0 280 200" aria-hidden="true">
+        <rect class="soft" x="60" y="70" width="160" height="110" rx="6"/>
+        <path class="ln" d="M40 180 h200 M60 180 v-110 l80 -44 l80 44 v110 M120 180 v-40 h40 v40"/>
+        <path class="ln" d="M140 74 v32 M124 90 h32"/>
+        <circle class="gold pulse" cx="140" cy="90" r="5"/>
+      </svg>
+      <div class="step-k rv d1">Health360 · Step 1 · Your baby is admitted</div>
+      <h2 class="rv d2">From the moment your baby is admitted, the <span class="hl">RM1,000,000 medical card</span> starts working.</h2>
+      <p class="rv d3">Cashless at PruBSN panel hospitals. You pay only the first RM500 of hospital bills each year.</p>
+    </div>
+  </section>
+
+  <!-- J2 Ward -->
+  <section class="slide night" data-label="The room">
+    <div class="inner center">
+      <svg class="scene-art" viewBox="0 0 280 200" aria-hidden="true">
+        <rect class="soft" x="50" y="110" width="180" height="40" rx="8"/>
+        <path class="ln" d="M40 170 v-80 M40 130 h200 v40 M50 110 h180 a10 10 0 0 1 10 10 M60 110 a14 14 0 0 1 28 0"/>
+        <path class="ln" d="M220 40 v50 M206 54 h28"/>
+        <circle class="gold" cx="220" cy="40" r="6"/>
+      </svg>
+      <div class="kb-fig num rv d1" data-count="200" data-prefix="RM">RM200<small>/day</small></div>
+      <div class="step-k rv d2">Step 2 · The room</div>
+      <h2 class="rv d3">Hospital room and board, up to <span class="hl">150 days</span> a year.</h2>
+      <p class="rv d4">ICU and CCU are covered as charged, within the same 150 days.</p>
+    </div>
+  </section>
+
+  <!-- J3 Treatment -->
+  <section class="slide night" data-label="Treatment">
+    <div class="inner center">
+      <svg class="scene-art" viewBox="0 0 280 200" aria-hidden="true">
+        <ellipse class="soft" cx="140" cy="60" rx="70" ry="22"/>
+        <path class="ln" d="M140 10 v28 M70 60 a70 22 0 0 0 140 0 a70 22 0 0 0 -140 0"/>
+        <path class="ln" d="M20 150 h70 l12 -30 l16 56 l16 -70 l14 44 h112"/>
+        <circle class="gold pulse" cx="140" cy="60" r="7"/>
+      </svg>
+      <div class="step-k rv d1">Step 3 · Tests, treatment and surgery</div>
+      <h2 class="rv d2">Surgery and in-hospital treatment are covered <span class="hl">as charged</span>.</h2>
+      <p class="rv d3">Specialist visits, guardian care and ambulance fees too. Tests and treatment 120 days before and 120 days after the stay. Day surgery, and a major organ transplant once per lifetime.</p>
+    </div>
+  </section>
+
+  <!-- J4 Clinic illnesses -->
+  <section class="slide night" data-label="At the clinic">
+    <div class="inner center">
+      <svg class="scene-art" viewBox="0 0 280 200" aria-hidden="true">
+        <circle class="soft" cx="140" cy="158" r="20"/>
+        <path class="ln" d="M130 146 V40 a10 10 0 0 1 20 0 V146 a20 20 0 1 1 -20 0z"/>
+        <path class="ln" d="M150 60 h12 M150 80 h12 M150 100 h12 M150 120 h12"/>
+        <path class="ln" d="M140 150 V92"/>
+        <circle class="gold pulse" cx="140" cy="158" r="10"/>
+        <path class="ln" d="M60 70 q-14 20 0 40 M78 78 q-8 12 0 24 M220 70 q14 20 0 40 M202 78 q8 12 0 24"/>
+      </svg>
+      <div class="kb-fig num rv d1" data-count="2000" data-prefix="RM">RM2,000<small>/illness</small></div>
+      <div class="step-k rv d2">Step 4 · Common childhood illnesses</div>
+      <h2 class="rv d3">Dengue, flu, HFMD, pneumonia or gastroenteritis, treated <span class="hl">at the clinic</span>.</h2>
+      <p class="rv d4">No admission needed. Up to 3 illnesses a year. Plus RM50 a day for a parent, up to 3 days per illness.</p>
+    </div>
+  </section>
+
+  <!-- J5 Serious -->
+  <section class="slide night" data-label="If it’s serious">
+    <div class="inner center">
+      <svg class="scene-art" viewBox="0 0 280 200" aria-hidden="true">
+        <path class="soft" d="M140 20 l70 26 v50 c0 46 -32 74 -70 88 c-38 -14 -70 -42 -70 -88 v-50z"/>
+        <path class="ln" d="M140 20 l70 26 v50 c0 46 -32 74 -70 88 c-38 -14 -70 -42 -70 -88 v-50z"/>
+        <path class="ln" d="M140 72 v56 M112 100 h56"/>
+        <circle class="gold pulse" cx="140" cy="100" r="6"/>
+      </svg>
+      <div class="step-k rv d1">Step 5 · If it’s serious</div>
+      <h2 class="rv d2">Outpatient cancer treatment and kidney dialysis, covered <span class="hl">as charged</span>.</h2>
+      <div class="limit-track rv d3" aria-hidden="true"><div class="limit-base"></div><div class="limit-boost"></div></div>
+      <div class="limit-labels rv d3"><span>RM0</span><span>RM1,500,000 per lifetime</span></div>
+      <p class="rv d4">Up to <b style="color:#FFFFFF">RM1,500,000</b> per lifetime for the two combined. Includes follow-up care after remission, and the 20% share after RM1,000,000 does not apply to them.</p>
+    </div>
+  </section>
+
+  <!-- J6 Also covered -->
+  <section class="slide" data-label="Also covered">
+    <div class="inner">
+      <div class="eyebrow rv">Everything else it covers</div>
+      <h2 class="rv d1">The baby’s medical card, in plain terms</h2>
+      <div class="cover-grid">
+        <div class="cv rv d2"><b>Government hospital</b><span>Daily cash allowance</span><em>RM100 a day</em></div>
+        <div class="cv rv d2"><b>Accident emergency</b><span>Outpatient treatment</span><em>Up to RM2,000 a year</em></div>
+        <div class="cv rv d3"><b>Second medical opinion</b><span>In Malaysia, or with a world-leading expert</span><em>Up to RM1,000 a year in Malaysia</em></div>
+        <div class="cv rv d3"><b>Home nursing care</b><span>After a hospital stay</span><em>Up to 180 days per lifetime</em></div>
+        <div class="cv rv d4"><b>Intraocular lens</b><span>Including multifocal lens</span><em>Up to RM8,000 per lifetime</em></div>
+        <div class="cv rv d4"><b>Worldwide emergency</b><span>Medical assistance abroad</span><em>Included</em></div>
+      </div>
+      <p class="fine rv d5">Health360 Plan 200, Deductible RM500, from the PruBSN quotation dated 5 Nov 2026. Mental care treatment is not included in this plan. Subject to waiting periods, exclusions and certificate terms.</p>
+    </div>
+  </section>
+
+  <!-- 19c Medical card limit -->
+  <section class="slide" data-label="Medical card limit">
+    <div class="inner">
+      <div class="eyebrow rv">Health360 · the baby’s medical card</div>
+      <h2 class="rv d1">RM1,000,000 to start, and it <span class="hl">doesn’t stop there</span></h2>
+      <div class="svp rv d2" aria-label="First RM1,000,000 of eligible claims paid in full; after that PruBSN pays 80 percent and you pay 20 percent">
+        <div class="svp-track"><div class="svp-full"><span>Paid in full</span></div><div class="svp-over"><span>80% / 20%</span></div></div>
+        <div class="svp-labels"><span>RM0</span><span class="num"><b>RM1,000,000</b> Smart Value Point</span><span>beyond</span></div>
+      </div>
+      <div class="split">
+        <div class="split-row rv d3"><i style="background:#178D93"></i><div><b>Up to RM1,000,000 of eligible bills</b><span>Paid in full, after the RM500 deductible each year. This is counted over the life of the card, not reset every year.</span></div></div>
+        <div class="split-row rv d4"><i style="background:repeating-linear-gradient(45deg,#178D93 0 4px,#C2553F 4px 6px)"></i><div><b>After RM1,000,000, cover continues</b><span>PruBSN pays 80% of further eligible bills and you pay 20%. There is no annual limit and no lifetime limit.</span></div></div>
+        <div class="split-row rv d5"><i style="background:#D4A23A"></i><div><b>The RM500 deductible</b><span>You pay the first RM500 of hospital bills in each rider year. After that, cashless at PruBSN panel hospitals.</span></div></div>
+      </div>
+      <div class="timeline rv d5" style="margin-top:4px">
+        <div class="tl-line"></div><div class="tl-fill"></div>
+        <div class="tl-points">
+          <div class="tl-pt"><div class="dot"></div><div class="day">Day 1</div><b>Accidents</b><span>Covered from the start.</span></div>
+          <div class="tl-pt"><div class="dot"></div><div class="day">Day 30</div><b>Other illnesses</b><span>Covered 30 days after the certificate starts.</span></div>
+          <div class="tl-pt"><div class="dot"></div><div class="day">Day 120</div><b>Specified illnesses</b><span>Such as hypertension and diabetes.</span></div>
+        </div>
+      </div>
+      <p class="fine rv d6">From the PruBSN quotation dated 5 Nov 2026. The 80/20 sharing does not apply to outpatient cancer, kidney dialysis, emergency accident treatment or treatment at Malaysian government facilities. Excludes newborn conditions in the first 30 days after birth and congenital conditions. The medical Tabarru’ is not guaranteed and rises with age and medical inflation (currently about RM1,622 a year at age 0).</p>
+    </div>
+  </section>
+
+  <!-- 20 Options -->
+  <section class="slide" data-label="Your options">
+    <div class="inner">
+      <div class="eyebrow rv">Your options</div>
+      <h2 class="rv d1">Three ways to set up the baby’s cover</h2>
+      <div class="said rv d2" id="youSaid2">Tell me what matters most and I’ll show which option fits.</div>
+      <div class="options">
+        <div class="opt rv d3"><div class="k">Option 1 · strongest at birth</div><div class="nm">Baby TotalCare Superior</div><div class="v num">RM130<small>/month</small></div><div class="meta">RM30,000 basic and Vital Care Plus<br>No medical card</div></div>
+        <div class="opt rv d4"><div class="k">Option 2 · medical card</div><div class="nm">Essential + Health360</div><div class="v num">RM345<small>/month</small></div><div class="meta">RM25,000 basic and Vital Care Plus<br>RM200 room · RM1m · RM500 deductible</div></div>
+        <div class="opt rec rv d5"><div class="k">Option 3 · most complete</div><div class="nm">Superior + Health360</div><div class="v num">RM406<small>/month</small></div><div class="meta">RM25,000 basic and Vital Care Plus<br>Strongest at birth, with the RM1m medical card</div></div>
+      </div>
+      <div class="chip-group rv d6">
+        <span class="chip-label" id="lblOpt">Which option feels right for you?</span>
+        <div class="chips" role="group" aria-labelledby="lblOpt" data-group="opt">
+          <button class="chip" type="button" id="opt-1" aria-pressed="false" data-val="Option 1 · Superior · RM130">Option 1</button>
+          <button class="chip" type="button" id="opt-2" aria-pressed="false" data-val="Option 2 · Essential + Health360 · RM345">Option 2</button>
+          <button class="chip" type="button" id="opt-3" aria-pressed="false" data-val="Option 3 · Superior + Health360 · RM406">Option 3</button>
+          <button class="chip" type="button" id="opt-x" aria-pressed="false" data-val="Still deciding">Still deciding</button>
+        </div>
+      </div>
+      <p class="fine rv d7">PruBSN quotations dated 5 Nov 2026. Funds: Options 1–2, 20% Dana Urus, 20% Ekuiti Dinasti, 60% Dana Asia; Option 3, 40% Ekuiti Plus, 20% Ekuiti Income, 40% Ekuiti Dinasti. Fund returns, Tabarru’ and charges are not guaranteed; medical rider charges can rise with notice.</p>
+    </div>
+  </section>
+
+  <!-- 21 Timeline -->
+  <section class="slide" data-label="Key dates">
+    <div class="inner">
+      <div class="eyebrow rv">Your key dates</div>
+      <h2 class="rv d1">There’s time to decide, <span class="hl">but not unlimited time</span></h2>
+      <div class="timeline rv d2">
+        <div class="tl-line"></div><div class="tl-fill"></div>
+        <div class="tl-points">
+          <div class="tl-pt"><div class="dot"></div><div class="day">Today</div><b>20 weeks</b><span>Inside the window for covering the unborn baby.</span></div>
+          <div class="tl-pt"><div class="dot warn"></div><div class="day">Late Feb 2027</div><b>About 36 weeks</b><span>Pre-birth sign-up window closes.</span></div>
+          <div class="tl-pt"><div class="dot"></div><div class="day">27 Mar 2027</div><b>Due date</b><span>Pregnancy benefits only apply if cover started before birth.</span></div>
+        </div>
+      </div>
+      <p class="fine rv d3">Eligibility for unborn-child cover: 13 to 36 gestational weeks. The exact cut-off (submission, approval or effective date) is confirmed with PruBSN. Cover starts only when the certificate is issued and in force.</p>
+    </div>
+  </section>
+
+  <!-- 22 Close -->
+  <section class="slide" data-label="Next steps">
+    <div class="inner center">
+      <div class="done rv"><svg viewBox="0 0 44 44" aria-hidden="true"><path d="M10 23 l8 8 l16 -18"/></svg></div>
+      <h2 class="rv d1">Let’s protect your baby before day one.</h2>
+      <div class="next-list">
+        <div class="rv d2">Choose the option that fits your answers and budget</div>
+        <div class="rv d3">Fill in the proposal with complete, accurate health answers</div>
+        <div class="rv d4">PruBSN reviews it, then the certificate is issued</div>
+        <div class="rv d5">After birth, I help you update the baby’s details</div>
+      </div>
+      <div class="send-box rv d5">
+        <div class="send-summary" id="sendSummary">No answers yet. Tap your answers on the earlier screens.</div>
+        <div class="send-actions">
+          <button class="send-btn" type="button" id="sendBtn">Send my answers to Syakir</button>
+          <button class="copy-btn" type="button" id="copyBtn">Copy answers</button>
+        </div>
+        <div class="send-status" id="sendStatus" role="status" aria-live="polite"></div>
+      </div>
+      <div class="agent rv d6"><div class="av">S</div><div><b>Muhammad Syakir Badri Bin Md Nizam</b><span>Takaful Agent 8LT00006 · ASG Ansar Group</span></div></div>
+      <div class="tagline rv d7">Anda Inspirasi Kami</div>
+    </div>
+  </section>
+
+  <!-- 23 Sources -->
+  <section class="slide" data-label="Sources">
+    <div class="inner">
+      <div class="eyebrow rv">Sources</div>
+      <h2 class="rv d1">Where the numbers come from</h2>
+      <div class="src-list rv d2">
+        <a href="https://www.thestar.com.my/news/nation/2024/04/22/less-than-half-of-malaysians-are-insured-as-we-become-an-ageing-society" target="_blank" rel="noopener">~45% insured, LIAM CEO<span>The Star, 22 Apr 2024</span></a>
+        <a href="https://www.theborneopost.com/2022/10/24/one-in-three-working-malaysians-still-not-personally-protected/" target="_blank" rel="noopener">30% of working 25–40s unprotected, Zurich survey<span>Borneo Post, 24 Oct 2022</span></a>
+        <a href="https://www.thestar.com.my/business/business-news/2026/06/10/takaful-industry-grows-473-in-2025-gross-contributions-reach-rm1638bil-in-2025" target="_blank" rel="noopener">Takaful penetration 19.6%, RM10.6 bil benefits, MTA<span>The Star, 10 Jun 2026</span></a>
+        <a href="https://theedgemalaysia.com/article/cover-story-closing-insurance-family-takaful-protection-gap" target="_blank" rel="noopener">UKM–LIAM underinsurance study (94–98%, RM100k–150k)<span>The Edge Malaysia</span></a>
+        <a href="https://www.thestar.com.my/news/nation/2025/10/30/interactive-malaysia039s-medical-inflation-to-rise-to-16-in-2026-says-aon" target="_blank" rel="noopener">Malaysia 16%, Asia Pacific 11.3%, Aon 2026<span>The Star, 30 Oct 2025</span></a>
+        <a href="https://www.wtwco.com/en-gb/news/2025/11/double-digit-healthcare-cost-increases-projected-to-persist-into-2026-and-beyond" target="_blank" rel="noopener">Global 10.3%, WTW Global Medical Trends 2026<span>WTW, Nov 2025</span></a>
+        <a href="https://www.freemalaysiatoday.com/category/nation/2026/04/14/medical-claims-hit-rm9-4bil-up-5-3-in-2025" target="_blank" rel="noopener">RM9.4 bil medical claims 2025; +56% 2021–2023<span>FMT, 14 Apr 2026</span></a>
+        <a href="https://www.imoney.my/articles/cost-to-have-a-baby" target="_blank" rel="noopener">Private hospital delivery packages<span>iMoney, updated Oct 2026</span></a>
+        <a href="https://www.hargakosmy.com/kos-rawatan-nicu-hospital-kerajaan/" target="_blank" rel="noopener">NICU cost estimates, government vs private<span>Hargakosmy, updated Dec 2025</span></a>
+      </div>
+    </div>
+  </section>
+
+  <div class="sheet-bg" id="sheetBg" hidden></div>
+  <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" hidden>
+    <button class="sheet-x" id="sheetX" type="button" aria-label="Close">×</button>
+    <div id="sheetBody"></div>
+  </div>
+
+  <template id="sheet-preg">
+    <div class="sk">Baby TotalCare · for Mum</div>
+    <h3 id="sheetTitle">Specified pregnancy complications</h3>
+    <p>Paid once, on first diagnosis, during pregnancy and up to 60 days after the birth.</p>
+    <ul class="sl">
+      <li><b>Eclampsia</b><span>Seizures caused by high blood pressure in pregnancy</span></li>
+      <li><b>Pre-eclampsia with severe features</b><span>Dangerously high blood pressure with organ strain</span></li>
+      <li><b>Abruptio placentae</b><span>The placenta separates from the womb too early</span></li>
+      <li><b>Amniotic fluid embolism</b><span>Fluid around the baby enters Mum’s bloodstream</span></li>
+      <li><b>Placenta increta / percreta</b><span>The placenta grows deep into or through the womb wall</span></li>
+      <li><b>Acute fatty liver of pregnancy, or DIC</b><span>Sudden liver failure, or a severe blood-clotting problem</span></li>
+      <li><b>Postpartum haemorrhage needing hysterectomy</b><span>Heavy bleeding after birth that needs the womb removed</span></li>
+      <li><b>Pulmonary embolism of pregnancy</b><span>A blood clot in the lungs</span></li>
+    </ul>
+    <div class="sv"><span><b>Superior</b> RM8,000, plus RM2,000 more with gestational diabetes</span><span><b>Essential</b> RM5,000, plus RM1,000 more with gestational diabetes</span><span><b>Superior</b> also pays RM100 a day in hospital for these, up to 30 days</span></div>
+    <p class="fine">Pre-existing conditions are excluded. Each condition must meet the certificate definition.</p>
+  </template>
+
+  <template id="sheet-mental">
+    <div class="sk">Baby TotalCare Superior · for Mum</div>
+    <h3 id="sheetTitle">Postnatal depression or anxiety</h3>
+    <p>Paid once, on first diagnosis, from pregnancy up to 1 year after the birth.</p>
+    <ul class="sl">
+      <li><b>Major depressive disorder</b><span>Including postpartum depression</span></li>
+      <li><b>Generalised anxiety disorder</b><span>Ongoing anxiety that disrupts daily life</span></li>
+    </ul>
+    <div class="sv"><span><b>Superior</b> RM5,000</span><span><b>Essential</b> not covered</span></div>
+    <p class="fine">Diagnosis must meet the certificate definition. Pre-existing conditions are excluded.</p>
+  </template>
+
+  <template id="sheet-dev">
+    <div class="sk">Baby TotalCare Superior · for the child</div>
+    <h3 id="sheetTitle">Child development conditions</h3>
+    <p>Treatment cost reimbursed until the certificate anniversary when the child turns 7 next birthday. Payable for more than one condition.</p>
+    <ul class="sl">
+      <li><b>Severe autism spectrum disorder</b></li>
+      <li><b>ADHD</b><span>Attention deficit hyperactivity disorder</span></li>
+      <li><b>Gross motor or speech developmental delay</b><span>Late to walk, move or talk</span></li>
+      <li><b>Tourette syndrome</b><span>Repeated movements or sounds the child can’t control</span></li>
+      <li><b>Language disorder</b></li>
+      <li><b>Stereotypic movement disorder</b><span>Repetitive movements such as rocking or hand-flapping</span></li>
+      <li><b>Specific learning disorder</b><span>Such as difficulty reading, writing or with numbers</span></li>
+    </ul>
+    <div class="sv"><span><b>Superior</b> up to RM5,000 a year</span><span><b>Essential</b> not covered</span></div>
+  </template>
+
+  <template id="sheet-cong">
+    <div class="sk">Baby TotalCare · for the child</div>
+    <h3 id="sheetTitle">Congenital conditions</h3>
+    <p>Conditions a baby is born with. The plan names 27 of them, from heart defects to cleft lip and clubfoot.</p>
+    <div class="sv"><span><b>Superior</b> hospital bills up to RM50,000 a year, and also covers all other structural congenital anomalies</span><span><b>Essential</b> hospital bills up to RM30,000 a year, named conditions only</span><span><b>Both</b> RM100 a day hospital allowance, up to 30 days a year, until age 7</span></div>
+    <button class="sheet-go" type="button" data-go="Conditions covered">See all 27 conditions, with pictures →</button>
+  </template>
+
+  <template id="sheet-jaundice">
+    <div class="sk">Baby TotalCare · newborn</div>
+    <h3 id="sheetTitle">Neonatal jaundice</h3>
+    <svg class="pic" viewBox="0 0 200 160" aria-hidden="true">
+      <rect class="ln" x="50" y="12" width="100" height="22" rx="6"/>
+      <path class="ray" d="M70 40 v46 M100 40 v46 M130 40 v46"/>
+      <ellipse class="yel" cx="104" cy="108" rx="40" ry="13"/>
+      <circle class="yel" cx="58" cy="104" r="13"/>
+      <path class="hot-ln" d="M50 100 h14"/>
+      <path class="ln" d="M24 122 h152 M34 122 v26 M166 122 v26"/>
+    </svg>
+    <p class="pw">Yellow skin and eyes in a newborn. Phototherapy uses a special blue light to clear it.</p>
+    <div class="sv"><span><b>Superior</b> RM2,000</span><span><b>Essential</b> RM1,000</span><span>When phototherapy is needed within the first 60 days after birth</span></div>
+  </template>
+
+  <template id="pic-cleft">
+    <div class="sk">Congenital condition</div>
+    <h3 id="sheetTitle">Cleft lip or cleft palate</h3>
+    <svg class="pic" viewBox="0 0 200 160" aria-hidden="true">
+      <circle class="soft" cx="100" cy="80" r="64"/>
+      <circle class="ln" cx="100" cy="80" r="64"/>
+      <path class="ln" d="M72 68 q7 -6 14 0 M114 68 q7 -6 14 0"/>
+      <path class="ln" d="M100 78 q-6 10 0 13"/>
+      <path class="ln" d="M78 110 q9 -5 17 -2 M105 108 q9 -3 17 2"/>
+      <path class="hot-ln" d="M95 108 L100 94 L105 108"/>
+      <path class="ln" d="M86 122 q14 8 28 0"/>
+    </svg>
+    <p class="pw">A gap in the upper lip, the roof of the mouth, or both, present from birth.</p>
+  </template>
+
+  <template id="pic-asd">
+    <div class="sk">Congenital condition</div>
+    <h3 id="sheetTitle">Atrial septal defect (ASD)</h3>
+    <img class="photo" src="img/asd.jpg" alt="Heart cut-away showing a hole between the two upper chambers">
+    <p class="credit">Image: © 2025 Boston Children’s Hospital</p>
+    <p class="pw">A hole in the wall between the heart’s two upper chambers, so some blood flows the wrong way.</p>
+  </template>
+  <template id="pic-vsd">
+    <div class="sk">Congenital condition</div>
+    <h3 id="sheetTitle">Ventricular septal defect (VSD)</h3>
+    <img class="photo" src="img/vsd.jpg" alt="Heart diagram showing a hole between the two lower chambers, with blood flowing from left to right">
+    <p class="credit">Image supplied by Syakir</p>
+    <p class="pw">A hole in the wall between the heart’s two lower chambers, so blood flows from the left side to the right.</p>
+  </template>
+
+  <template id="pic-club">
+    <div class="sk">Congenital condition</div>
+    <h3 id="sheetTitle">Clubfoot</h3>
+    <img class="photo" src="img/clubfoot.jpg" alt="A normal baby foot beside a clubfoot turned inward">
+    <p class="credit">Image supplied by Syakir</p>
+    <p class="pw">One or both feet turn inward and downward from birth.</p>
+  </template>
+
+  <template id="pic-ddh">
+    <div class="sk">Congenital condition</div>
+    <h3 id="sheetTitle">Developmental dysplasia of the hip</h3>
+    <img class="photo" src="img/hip-ddh.jpg" alt="Two hip joints: left with the head of the femur in the socket, right with it slipped out">
+    <p class="credit">Image supplied by Syakir</p>
+    <p class="pw">The hip socket is shallow or loose, so the ball of the thigh bone can slip out. Left: hip in place. Right: hip out of its socket.</p>
+  </template>
+  <template id="pic-hipdis">
+    <div class="sk">Congenital condition</div>
+    <h3 id="sheetTitle">Congenital hip dislocation</h3>
+    <img class="photo" src="img/hip-dislocation.jpg" alt="Pelvis illustration with the right thigh bone out of its hip socket">
+    <p class="credit">Image supplied by Syakir</p>
+    <p class="pw">The ball of the thigh bone sits outside the hip socket from birth. The arrow shows where it should sit.</p>
+  </template>
+
+  <template id="pic-hydro">
+    <div class="sk">Congenital condition</div>
+    <h3 id="sheetTitle">Infantile hydrocephalus</h3>
+    <img class="photo" src="img/hydrocephalus.jpg" alt="Two baby heads: normal fluid in the brain, and extra fluid causing pressure">
+    <p class="credit">Image: KidsHealth®</p>
+    <p class="pw">Too much fluid builds up inside the baby’s brain, causing pressure and making the head swell.</p>
+  </template>
+
+  <template id="pic-spina">
+    <div class="sk">Congenital condition</div>
+    <h3 id="sheetTitle">Spina bifida</h3>
+    <img class="photo" src="img/spina-bifida.jpg" alt="Three types of spina bifida shown on the spine">
+    <p class="credit">Image: Nurseslabs</p>
+    <p class="pw">The backbone doesn’t close fully around the spinal cord during pregnancy. It ranges from mild (left) to more serious (right).</p>
+  </template>
+
+  <template id="pic-down">
+    <div class="sk">Congenital condition</div>
+    <h3 id="sheetTitle">Down syndrome</h3>
+    <img class="photo" src="img/down.jpg" alt="Illustration of a baby with common physical features of Down syndrome labelled">
+    <p class="credit">Image: Verywell</p>
+    <p class="pw">An extra copy of chromosome 21, which affects growth and development. Features and development vary for every child.</p>
+  </template>
+
+  <template id="pic-cataract">
+    <div class="sk">Congenital condition</div>
+    <h3 id="sheetTitle">Congenital cataract</h3>
+    <img class="photo" src="img/cataract.jpg" alt="A baby’s eyes: one with a normal lens and one with a clouded lens">
+    <p class="credit">Image supplied by Syakir</p>
+    <p class="pw">The lens of the eye is cloudy from birth, which blurs the baby’s vision.</p>
+  </template>
+
+  <template id="pic-deaf">
+    <div class="sk">Congenital condition</div>
+    <h3 id="sheetTitle">Congenital deafness</h3>
+    <svg class="pic" viewBox="0 0 200 160" aria-hidden="true">
+      <path class="ln" d="M126 18 c-38 0 -58 28 -58 58 c0 22 12 30 18 40 c6 12 2 28 20 28 c16 0 22 -14 22 -26"/>
+      <path class="ln" d="M124 46 c-18 0 -28 14 -28 28 c0 10 8 14 14 14"/>
+      <path class="ghost" d="M38 56 q-12 24 0 48 M52 64 q-8 16 0 32"/>
+      <path class="hot-ln" d="M26 50 L66 112"/>
+    </svg>
+    <p class="pw">The baby is born with hearing loss in one or both ears.</p>
+  </template>
+
+  <div class="notes-panel" id="notesPanel" hidden><div class="nk">Presenter notes · press N to hide</div><div id="notesBody"></div></div>
+
+  <div class="chrome" id="chrome">
+    <button class="nav" id="prev" type="button" aria-label="Previous">‹</button>
+    <div class="progress" id="progress" aria-hidden="true"></div>
+    <span class="counter" id="counter"></span>
+    <button class="notes-btn" id="notesBtn" type="button" aria-pressed="false" hidden>Notes</button>
+    <button class="nav" id="next" type="button" aria-label="Next">›</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  const slides = [...document.querySelectorAll('.slide')];
+  const deck = document.getElementById('deck');
+  const progress = document.getElementById('progress');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let index = 0;
+
+  slides.forEach(() => progress.append(document.createElement('span')));
+
+  function prepLines(root) {
+    root.querySelectorAll('.brand-mark .ring, .ecg path, .settled .check path, .done path, .bump .ln, .cond-art .ln, .ic path, .scene-art .ln, .pic .ln, .pic .hot-ln').forEach((p) => {
+      p.setAttribute('pathLength', '1200');
+      p.style.strokeDasharray = '1200';
+    });
+  }
+  prepLines(document);
+
+  // People grid: 20 figures, 9 lit (45%).
+  (function people() {
+    const g = document.getElementById('peopleGrid');
+    let out = '';
+    for (let i = 0; i < 20; i++) {
+      const col = i % 10, row = Math.floor(i / 10);
+      const x = 26 + col * 52, y = row * 60;
+      const on = [0, 2, 4, 6, 8, 11, 13, 15, 17].includes(i) ? ' on' : '';
+      const delay = (0.2 + i * 0.05).toFixed(2);
+      out += `<g class="p${on}" style="animation-delay:${delay}s"><circle cx="${x}" cy="${y + 14}" r="9"/><path d="M${x - 15} ${y + 52} q15 -36 30 0z"/></g>`;
+    }
+    g.innerHTML = out;
+  })();
+
+  // Donut segments.
+  const C = 2 * Math.PI * 88;
+  const segs = [...document.querySelectorAll('.donut .seg')];
+  segs.forEach((s) => {
+    s.style.strokeDasharray = `${Number(s.dataset.frac) * C} ${C}`;
+    s.style.strokeDashoffset = String(-Number(s.dataset.start) * C);
+  });
+  function sweepDonut() {
+    if (reduce) return;
+    segs.forEach((s, i) => {
+      s.animate([{ strokeDasharray: `0 ${C}` }, { strokeDasharray: `${Number(s.dataset.frac) * C} ${C}` }],
+        { duration: 1300, delay: 300 + i * 250, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'backwards' });
+    });
+  }
+
+  function countUp(slide) {
+    if (reduce) return;
+    slide.querySelectorAll('[data-count]').forEach((el) => {
+      const end = Number(el.dataset.count);
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      const small = el.querySelector('small');
+      const tail = small ? small.outerHTML : '';
+      const start = performance.now();
+      const dur = 1400;
+      const tick = (now) => {
+        const p = Math.min(1, (now - start) / dur);
+        const v = Math.round(end * (1 - Math.pow(1 - p, 3)));
+        el.innerHTML = prefix + v.toLocaleString('en-MY') + suffix + tail;
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    });
+  }
+
+  // ---------- Answers ----------
+  const CLIENT = 'Zati Nur Athirah';
+  const chosen = { hosp: '', hospName: '', ex: [], mcLimit: '', lt: '', pri: [], bud: '', opt: '' };
+  const priText = {};
+  document.querySelectorAll('[data-group="pri"] .chip').forEach((c) => { priText[c.dataset.val] = c.dataset.text; });
+
+  function fmtRM(n) { return 'RM' + Number(n).toLocaleString('en-MY'); }
+  function hasCard() { return chosen.ex.includes('Medical card') || chosen.ex.includes('Company group medical'); }
+
+  function summaryLines() {
+    const L = [];
+    if (chosen.hosp || chosen.hospName) L.push('Delivery: ' + [chosen.hosp, chosen.hospName].filter(Boolean).join(', '));
+    if (chosen.ex.length) L.push('Protection today: ' + chosen.ex.join(', '));
+    if (hasCard() && (chosen.mcLimit || chosen.lt)) L.push('Medical card limit: ' + [chosen.mcLimit ? fmtRM(chosen.mcLimit) : '', chosen.lt].filter(Boolean).join(', '));
+    if (chosen.pri.length) L.push('Biggest worries: ' + chosen.pri.join(', '));
+    if (chosen.bud) L.push('Monthly budget: ' + chosen.bud);
+    if (chosen.opt) L.push('Preferred option: ' + chosen.opt);
+    return L;
+  }
+
+  function renderSaid() {
+    let txt = '';
+    if (chosen.pri.length) txt += 'You said what matters most: <b>' + chosen.pri.map((v) => priText[v] || v).join(', ') + '</b>.';
+    if (chosen.bud) txt += (txt ? ' ' : '') + 'Comfortable monthly amount: <b>' + chosen.bud + '</b>.';
+    document.getElementById('youSaid').innerHTML = txt || 'Your choices show here and on the options screen.';
+    document.getElementById('youSaid2').innerHTML = txt || 'Tell me what matters most and I’ll show which option fits.';
+    const lines = summaryLines();
+    document.getElementById('sendSummary').textContent = lines.length ? 'For ' + CLIENT + '\n' + lines.join('\n') : 'No answers yet. Tap your answers on the earlier screens.';
+    document.getElementById('limitBox').hidden = !hasCard();
+  }
+
+  document.querySelectorAll('.chips').forEach((grp) => {
+    const multi = grp.dataset.multi === 'true';
+    const key = grp.dataset.group;
+    grp.addEventListener('click', (e) => {
+      const chip = e.target.closest('.chip');
+      if (!chip) return;
+      e.stopPropagation();
+      const on = chip.getAttribute('aria-pressed') !== 'true';
+      if (!multi) grp.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', 'false'));
+      if (key === 'ex' && on) {
+        // "None yet" excludes the others, and the others exclude "None yet".
+        grp.querySelectorAll('.chip').forEach((c) => {
+          if ((chip.dataset.val === 'None yet') !== (c.dataset.val === 'None yet')) c.setAttribute('aria-pressed', 'false');
+        });
+      }
+      chip.setAttribute('aria-pressed', String(on));
+      const sel = [...grp.querySelectorAll('.chip[aria-pressed="true"]')].map((c) => c.dataset.val);
+      chosen[key] = multi ? sel : (sel[0] || '');
+      renderSaid();
+    });
+  });
+  document.getElementById('hospName').addEventListener('input', (e) => { chosen.hospName = e.target.value.trim(); renderSaid(); });
+  document.getElementById('mcLimit').addEventListener('input', (e) => { chosen.mcLimit = e.target.value.trim(); renderSaid(); });
+
+  // ---------- Send to Airtable ----------
+  const AT = {
+    base: 'appcA4lwc8KrLNxwM', table: 'tbl3qHZBVHt542qs3',
+    name: 'fldHVRtBDF7Wu7QW1', at: 'fldxKiCFCHI5FismT', hospType: 'fldWV90gbJSz9BC9b', hospName: 'fld9JaXnKzD2pyvav',
+    ex: 'fld7ddcMk5Dqu7OaW', limit: 'fldK9xNdzmy5y5L1p', lt: 'fldR75Xwb3lr5GCif', pri: 'fldptPoYW42Y2uoL8',
+    bud: 'fldKSfMU0A98zgcEU', opt: 'fldkZcPwvMzdkXWVq', notes: 'fldEaualYeg3RcgPZ', src: 'fld90bRMTNnOg5CG0'
+  };
+  const sendBtn = document.getElementById('sendBtn');
+  const sendStatus = document.getElementById('sendStatus');
+  function setStatus(msg, kind) { sendStatus.textContent = msg; sendStatus.className = 'send-status' + (kind ? ' ' + kind : ''); }
+
+  let mcpPromise = null;
+  function getMcp() {
+    if (!mcpPromise) {
+      mcpPromise = (window.claude && typeof window.claude.use === 'function')
+        ? window.claude.use('mcp').catch(() => null)
+        : Promise.resolve(null);
+    }
+    return mcpPromise;
+  }
+
+  sendBtn.addEventListener('click', async (e) => {
+    e.stopPropagation();
+    const lines = summaryLines();
+    if (!lines.length) { setStatus('Nothing to send yet. Tap some answers on the earlier screens first.', 'warn'); return; }
+    sendBtn.disabled = true;
+    setStatus('Sending…');
+    const mcp = await getMcp();
+    if (!mcp) {
+      setStatus('Tap Copy answers, then paste them to Syakir on WhatsApp.', 'warn');
+      sendBtn.disabled = false;
+      return;
+    }
+    const f = {};
+    f[AT.name] = CLIENT;
+    f[AT.at] = new Date().toISOString();
+    if (chosen.hosp) f[AT.hospType] = chosen.hosp;
+    if (chosen.hospName) f[AT.hospName] = chosen.hospName;
+    if (chosen.ex.length) f[AT.ex] = chosen.ex;
+    if (hasCard() && chosen.mcLimit && !isNaN(Number(chosen.mcLimit))) f[AT.limit] = Number(chosen.mcLimit);
+    if (hasCard() && chosen.lt) f[AT.lt] = chosen.lt;
+    if (chosen.pri.length) f[AT.pri] = chosen.pri;
+    if (chosen.bud) f[AT.bud] = chosen.bud;
+    if (chosen.opt) f[AT.opt] = chosen.opt;
+    f[AT.notes] = lines.join('\n');
+    f[AT.src] = 'Baby Before Day One presentation';
+    try {
+      await mcp.callTool('Airtable', 'create_records_for_table', { baseId: AT.base, tableId: AT.table, records: [{ fields: f }], typecast: true });
+      setStatus('Sent. Saved to Presentation Answers in your Airtable client base.', 'ok');
+      sendBtn.textContent = 'Send updated answers';
+    } catch (err) {
+      const code = err && err.code;
+      if (code === 'needs_reauth') setStatus('Airtable needs reconnecting. Reconnect it in claude.ai Settings → Connectors, then tap Send again.', 'warn');
+      else if (code === 'server_not_connected' || code === 'server_not_found') setStatus('Airtable isn’t connected on this account. Add it in claude.ai Settings → Connectors, or use Copy answers.', 'warn');
+      else if (code === 'not_in_manifest' || code === 'approval_required' || code === 'consent_required') setStatus('Sending needs your OK for Airtable. Tap Send again and choose Allow.', 'warn');
+      else if (code === 'selection_required') setStatus('Choose which Airtable connection to use when Claude asks, then tap Send again.', 'warn');
+      else if (code === 'blocked_by_policy') setStatus('Your organisation’s policy blocks this Airtable action. Use Copy answers instead.', 'warn');
+      else if (code === 'tool_error') setStatus('Airtable didn’t accept the answers: ' + (err.message || 'unknown reason') + '. Use Copy answers instead.', 'warn');
+      else if (code === 'not_granted' || code === 'capability_disabled' || code === 'capability_removed') setStatus('Sending isn’t available in this view. Use Copy answers instead.', 'warn');
+      else setStatus('Airtable didn’t confirm. Check the Presentation Answers table before sending again.', 'warn');
+    }
+    sendBtn.disabled = false;
+  });
+
+  document.getElementById('copyBtn').addEventListener('click', (e) => {
+    e.stopPropagation();
+    const lines = summaryLines();
+    const text = 'For ' + CLIENT + '\n' + (lines.length ? lines.join('\n') : 'No answers yet');
+    const fallback = () => {
+      const r = document.createRange();
+      r.selectNodeContents(document.getElementById('sendSummary'));
+      const s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      setStatus('Answers selected. Copy them with your keyboard or the share menu.', '');
+    };
+    try {
+      navigator.clipboard.writeText(text).then(() => setStatus('Answers copied.', 'ok'), fallback);
+    } catch (_) { fallback(); }
+  });
+
+  // ---------- Detail sheets ----------
+  const sheet = document.getElementById('sheet');
+  const sheetBg = document.getElementById('sheetBg');
+  const sheetBody = document.getElementById('sheetBody');
+  let lastFocus = null;
+  const CONG_LINE = '<div class="sv"><span><b>Superior</b> hospital bills up to RM50,000 a year</span><span><b>Essential</b> up to RM30,000 a year</span><span>Until age 7, plus RM100 a day hospital allowance, up to 30 days a year</span></div>';
+  function openSheet(id, from) {
+    const tpl = document.getElementById(id);
+    if (!tpl) return;
+    sheetBody.innerHTML = '';
+    sheetBody.append(tpl.content.cloneNode(true));
+    if (id.startsWith('pic-')) sheetBody.insertAdjacentHTML('beforeend', CONG_LINE);
+    prepLines(sheetBody);
+    lastFocus = from || null;
+    sheet.hidden = false; sheetBg.hidden = false;
+    sheet.scrollTop = 0;
+    document.getElementById('sheetX').focus();
+  }
+  function closeSheet() {
+    if (sheet.hidden) return;
+    sheet.hidden = true; sheetBg.hidden = true; sheetBody.innerHTML = '';
+    if (lastFocus) lastFocus.focus();
+  }
+  document.querySelectorAll('[data-sheet]').forEach((b) => b.addEventListener('click', (e) => { e.stopPropagation(); const v = b.dataset.sheet; openSheet(v.startsWith('pic-') ? v : 'sheet-' + v, b); }));
+  document.getElementById('sheetX').addEventListener('click', (e) => { e.stopPropagation(); closeSheet(); });
+  sheetBg.addEventListener('click', (e) => { e.stopPropagation(); closeSheet(); });
+  sheet.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const go = e.target.closest('[data-go]');
+    if (go) {
+      const i = slides.findIndex((s) => s.dataset.label === go.dataset.go);
+      closeSheet();
+      if (i >= 0) show(i);
+    }
+  });
+
+  // ---------- Presenter notes ----------
+  const panel = document.getElementById('notesPanel');
+  const notesBody = document.getElementById('notesBody');
+  const notesBtn = document.getElementById('notesBtn');
+  function renderNotes() {
+    const n = slides[index].querySelector('.notes');
+    notesBody.innerHTML = n ? n.innerHTML : '<p>No notes for this screen.</p>';
+  }
+  function toggleNotes() {
+    panel.hidden = !panel.hidden;
+    notesBtn.setAttribute('aria-pressed', String(!panel.hidden));
+    renderNotes();
+  }
+  notesBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleNotes(); });
+  panel.addEventListener('click', (e) => e.stopPropagation());
+
+  function show(i) {
+    index = Math.max(0, Math.min(slides.length - 1, i));
+    slides.forEach((s, k) => {
+      s.classList.toggle('is-active', k === index);
+      s.classList.toggle('is-past', k < index);
+    });
+    const cur = slides[index];
+    countUp(cur);
+    if (cur.querySelector('.donut')) sweepDonut();
+    [...progress.children].forEach((p, k) => p.classList.toggle('on', k <= index));
+    document.getElementById('counter').textContent = `${index + 1} / ${slides.length}`;
+    document.getElementById('prev').disabled = index === 0;
+    document.getElementById('next').disabled = index === slides.length - 1;
+    document.getElementById('chrome').classList.toggle('night-chrome', cur.classList.contains('night'));
+    document.getElementById('ribbon').hidden = index > 0;
+    if (!panel.hidden) renderNotes();
+  }
+
+  const INTERACTIVE = 'button, a, input, label, .chips, .form-card, .send-box, .sheet, .sheet-bg';
+  document.getElementById('prev').addEventListener('click', (e) => { e.stopPropagation(); show(index - 1); });
+  document.getElementById('next').addEventListener('click', (e) => { e.stopPropagation(); show(index + 1); });
+  deck.addEventListener('click', (e) => {
+    if (e.target.closest(INTERACTIVE) || !sheet.hidden) return;
+    show(e.clientX < window.innerWidth * 0.3 ? index - 1 : index + 1);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.target.closest && e.target.closest('input, textarea')) return;
+    if (e.key === 'Escape') { closeSheet(); return; }
+    if (!sheet.hidden) return;
+    if (['ArrowRight', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); show(index + 1); }
+    if (['ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); show(index - 1); }
+    
+  });
+  let sx = null;
+  deck.addEventListener('touchstart', (e) => { sx = e.target.closest(INTERACTIVE) || !sheet.hidden ? null : e.touches[0].clientX; }, { passive: true });
+  deck.addEventListener('touchend', (e) => {
+    if (sx == null) return;
+    const dx = e.changedTouches[0].clientX - sx;
+    sx = null;
+    if (Math.abs(dx) > 50) { e.preventDefault(); show(index + (dx < 0 ? 1 : -1)); }
+  });
+
+  renderSaid();
+  show(0);
+})();
+</script>
+</body></html>
