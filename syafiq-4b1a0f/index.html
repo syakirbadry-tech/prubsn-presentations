@@ -644,6 +644,13 @@ p { margin: 0; font-size: clamp(16px, 2vw, 19px); line-height: 1.55; color: var(
 .why-t b { color: #F2A65A; }
 @media (max-width: 600px) { .why-grid { grid-template-columns: 1fr; } .cmp { min-width: 0; font-size: 12px; } .cmp th, .cmp td { padding: 7px 7px; } .cmp thead th { font-size: 14px; } .cmp td:first-child { width: 30%; } .cmp td:nth-child(2) { width: 32%; } .tag { font-size: 9.5px; padding: 1px 5px; margin-left: 0; margin-top: 3px; } }
 
+
+.form-link { display: inline-flex; align-items: center; gap: 10px; background: var(--gold); color: var(--ink); font: 700 16px var(--sans); text-decoration: none; border-radius: 999px; padding: 14px 24px; box-shadow: 0 10px 24px rgba(212,162,58,.35); }
+.form-link:hover { filter: brightness(1.05); }
+.form-link:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+@media (prefers-reduced-motion: no-preference) { .is-active .form-link { animation: pop .6s var(--ease) 1.2s both, ringGold 2.4s ease-in-out 2s infinite; } }
+@keyframes ringGold { 0%, 100% { box-shadow: 0 10px 24px rgba(212,162,58,.35), 0 0 0 0 rgba(212,162,58,.45); } 50% { box-shadow: 0 10px 24px rgba(212,162,58,.35), 0 0 0 14px rgba(212,162,58,0); } }
+
 /* Controls */
 .chrome { position: absolute; left: 0; right: 0; bottom: 0; z-index: 5; display: flex; align-items: center; gap: 10px;
   padding-block: 12px calc(12px + env(safe-area-inset-bottom, 0px));
@@ -1364,6 +1371,7 @@ p { margin: 0; font-size: clamp(16px, 2vw, 19px); line-height: 1.55; color: var(
         </div>
         <div class="send-status" id="sendStatus" role="status" aria-live="polite"></div>
       </div>
+      <a class="form-link rv d6" href="https://syakirbadry-tech.github.io/Client-Form/client-detail-form.html" target="_blank" rel="noopener">Ready? Fill in your application form <span aria-hidden="true">→</span></a>
       <div class="agent rv d6"><div class="av">S</div><div><b>Muhammad Syakir Badri Bin Md Nizam</b><span>Takaful Agent 8LT00006 · ASG Ansar Group</span></div></div>
       <div class="tagline rv d7">Anda Inspirasi Kami</div>
     </div>
@@ -1486,6 +1494,8 @@ p { margin: 0; font-size: clamp(16px, 2vw, 19px); line-height: 1.55; color: var(
         if (p < 1) requestAnimationFrame(tick);
       };
       requestAnimationFrame(tick);
+      const finalVal = prefix + end.toLocaleString('en-MY') + suffix + tail;
+      setTimeout(() => { el.innerHTML = finalVal; }, dur + 250);
     });
   }
 

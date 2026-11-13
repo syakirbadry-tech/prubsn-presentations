@@ -1501,6 +1501,8 @@ p { margin: 0; font-size: clamp(16px, 2vw, 19px); line-height: 1.55; color: var(
         if (p < 1) requestAnimationFrame(tick);
       };
       requestAnimationFrame(tick);
+      const finalVal = prefix + end.toLocaleString('en-MY') + suffix + tail;
+      setTimeout(() => { el.innerHTML = finalVal; }, dur + 250);
     });
   }
 
