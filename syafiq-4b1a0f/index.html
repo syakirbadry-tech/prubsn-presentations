@@ -1602,12 +1602,32 @@ p { margin: 0; font-size: clamp(16px, 2vw, 19px); line-height: 1.55; color: var(
     return mcpPromise;
   }
 
+  // Sends to Syakir's portal (Presentation answers page). Returns true when it handled the send.
+  const PORTAL = 'https://prubsn-submission-service.syakirbadry.workers.dev/presentation-answers';
+  async function sendToPortal(lines) {
+    const answers = {};
+    Object.keys(chosen).forEach((k) => { const v = chosen[k]; if (Array.isArray(v) ? v.length : v) answers[k] = v; });
+    try {
+      const res = await fetch(PORTAL, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, credentials: 'omit', body: JSON.stringify({ client: CLIENT, source: 'AnugerahMax presentation', answers, summary: lines }) });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.success) {
+        setStatus('Sent to Syakir. Thank you!', 'ok');
+        sendBtn.textContent = 'Send updated answers';
+        sendBtn.disabled = false;
+        return true;
+      }
+      if (res.status === 400 && data.error) { setStatus(data.error, 'warn'); sendBtn.disabled = false; return true; }
+    } catch (_) { /* offline or blocked here: fall through to the other ways */ }
+    return false;
+  }
+
   sendBtn.addEventListener('click', async (e) => {
     e.stopPropagation();
     const lines = summaryLines();
     if (!lines.length) { setStatus('Nothing to send yet. Tap some answers on the earlier screens first.', 'warn'); return; }
     sendBtn.disabled = true;
     setStatus('Sending…');
+    if (await sendToPortal(lines)) return;
     const mcp = await getMcp();
     if (!mcp) {
       setStatus('Tap Copy answers, then paste them to Syakir on WhatsApp.', 'warn');
