@@ -1055,7 +1055,7 @@ p { margin: 0; font-size: clamp(16px, 2vw, 19px); line-height: 1.55; color: var(
         </div>
       </div>
       <div class="said rv d4" id="youSaid">Your choices show here and on the options screen.</div>
-      <p class="fine rv d5">Your taps stay on this screen only until you choose to send them.</p>
+      <p class="fine rv d5">Your answers are saved for Syakir as you tap, so your plan can be prepared around them.</p>
     </div>
   </section>
 
@@ -1366,7 +1366,7 @@ p { margin: 0; font-size: clamp(16px, 2vw, 19px); line-height: 1.55; color: var(
       <div class="send-box rv d5">
         <div class="send-summary" id="sendSummary">No answers yet. Tap your answers on the earlier screens.</div>
         <div class="send-actions">
-          <button class="send-btn" type="button" id="sendBtn">Send my answers to Syakir</button>
+          <button class="send-btn" type="button" id="sendBtn" hidden>Send my answers to Syakir</button>
           <button class="copy-btn" type="button" id="copyBtn">Copy answers</button>
         </div>
         <div class="send-status" id="sendStatus" role="status" aria-live="polite"></div>
@@ -1577,9 +1577,10 @@ p { margin: 0; font-size: clamp(16px, 2vw, 19px); line-height: 1.55; color: var(
       const sel = [...grp.querySelectorAll('.chip[aria-pressed="true"]')].map((c) => c.dataset.val);
       chosen[key] = multi ? sel : (sel[0] || '');
       renderSaid();
+      queueAutoSave();
     });
   });
-  document.getElementById('mcLimit').addEventListener('input', (e) => { chosen.mcLimit = e.target.value.trim(); renderSaid(); });
+  document.getElementById('mcLimit').addEventListener('input', (e) => { chosen.mcLimit = e.target.value.trim(); renderSaid(); queueAutoSave(); });
 
   // ---------- Send to Airtable ----------
   const AT = {
@@ -1608,18 +1609,38 @@ p { margin: 0; font-size: clamp(16px, 2vw, 19px); line-height: 1.55; color: var(
     const answers = {};
     Object.keys(chosen).forEach((k) => { const v = chosen[k]; if (Array.isArray(v) ? v.length : v) answers[k] = v; });
     try {
-      const res = await fetch(PORTAL, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, credentials: 'omit', body: JSON.stringify({ client: CLIENT, source: 'AnugerahMax presentation', answers, summary: lines }) });
+      const res = await fetch(PORTAL, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, credentials: 'omit', body: JSON.stringify({ client: CLIENT, source: 'AnugerahMax presentation', sendId: SEND_ID, answers, summary: lines }) });
       const data = await res.json().catch(() => ({}));
       if (res.ok && data.success) {
-        setStatus('Sent to Syakir. Thank you!', 'ok');
-        sendBtn.textContent = 'Send updated answers';
+        setStatus('✓ Saved for Syakir', 'ok');
         sendBtn.disabled = false;
         return true;
       }
+      if (res.status === 409) { SEND_ID = newId(); return sendToPortal(lines); }
       if (res.status === 400 && data.error) { setStatus(data.error, 'warn'); sendBtn.disabled = false; return true; }
     } catch (_) { /* offline or blocked here: fall through to the other ways */ }
     return false;
   }
+
+
+  // Answers save by themselves a couple of seconds after each tap (one row per
+  // opening of the deck, updated each time), so the client never has to press Send.
+  const newId = () => (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => { const r = Math.random() * 16 | 0; return (c === 'x' ? r : (r & 3 | 8)).toString(16); });
+  let SEND_ID = newId();
+  let autoTimer = null;
+  let lastAuto = '';
+  function queueAutoSave() { clearTimeout(autoTimer); autoTimer = setTimeout(autoSave, 2000); }
+  async function autoSave() {
+    clearTimeout(autoTimer);
+    const lines = summaryLines();
+    if (!lines.length) return;
+    const key = JSON.stringify(lines);
+    if (key === lastAuto) return;
+    setStatus('Saving…');
+    if (await sendToPortal(lines)) lastAuto = key;
+    else setStatus('Could not save right now. Tap Copy answers, then paste them to Syakir on WhatsApp.', 'warn');
+  }
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') autoSave(); });
 
   sendBtn.addEventListener('click', async (e) => {
     e.stopPropagation();
